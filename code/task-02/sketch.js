@@ -14,6 +14,7 @@ function preload(){
   // preload assets
 }
 
+
 // jetzt kann die canvasgrösse nicht über fixe werte, sondern über 
 // oben definierte variablen beschrieben werden. achtung: die syntax bleibt dabei gleich!
 function setup() {
@@ -23,10 +24,9 @@ function setup() {
 
 
 
-
 function draw() {
-  background('black');
-  noStroke();
+  background('#faedb9');
+  
   const columns = sketchWidth / circleSize;
   const rows = sketchHeight / circleSize;
   
@@ -34,7 +34,8 @@ function draw() {
   for(let x = 0; x <= columns; x += 1) {
     for(let y = 0; y <= rows; y += 1) {
       
-      fill(255,100,0);
+      fill(random(220, 270), 213, 249); // syntax: random ((r),g,b) und r (rot) wird in ein mögliches spektrum geteilt
+      noStroke();
       circle(x * spacing, y * spacing, circleSize);
     }
   }
