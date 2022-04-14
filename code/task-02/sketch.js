@@ -17,17 +17,17 @@ function preload(){
 // canvas size is now described by the former set variables (NOT fixed values)
 // syntax stays the same
 function setup() {
-  // createCanvas(400, 400, SVG); <-- alte schreibweise
+  // createCanvas(400, 400, SVG); <-- old way
   let c = createCanvas(sketchWidth, sketchHeight);
   
   // saving DOES NOT work. why??? 
-  saveCanvas(c, 'myCanvas', 'png'); 
+  saveCanvas(c, 'myCanvas', 'png');
 }
 
 
 function draw() {
   background('#faedb9');
-  noLoop();
+  //noLoop();
 
   const columns = sketchWidth / circleSize;
   const rows = sketchHeight / circleSize;
@@ -43,6 +43,8 @@ function draw() {
   }
   
 }
-
+// the computer only knows to draw one circle at a certain x,y positions with a certain diameter.
+// then to draw the next one at the next position. 
+// it does not understand padding, padding was thought out by the human mind, knowing math.
 
 
