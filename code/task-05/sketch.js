@@ -1,10 +1,8 @@
-
 // the goal is to draw ...
 
 // setting variables for canvas size
 const sketchHeight = 400;
 const sketchWidth = 400;
-const size = 20; // the variable "size" is needed for ...
 
 function preload() {
   // preload assets
@@ -22,6 +20,16 @@ function setup() {
 
 function draw() {
   //noLoop();
+  fill('red');
 
-triangle(x1, y1, x2, y2, x3, y3)
+  for (let x = 0; x <= 10; x += 1) {
+    for (let y = 0; y <= 10; y += 1) {
+      const xrnd = random(50, 300);
+      triangle(30, 75, xrnd, 20, 86, 75);
+
+    }
+  }
+
+
+
 }
