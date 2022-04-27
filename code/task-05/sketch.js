@@ -14,18 +14,26 @@ function preload() {
 function setup() {
   createCanvas(sketchWidth, sketchHeight);
   //background(100);
-  frameRate(10); // 10 times a second, so it is slower than the default
+  //frameRate(10); // 10 times a second, so it is slower than the default
 }
 
 
 function draw() {
-  //noLoop();
+  noLoop();
   fill('red');
 
-  for (let x = 0; x <= 10; x += 1) {
-    for (let y = 0; y <= 10; y += 1) {
-      const xrnd = random(50, 300);
-      triangle(30, 75, xrnd, 20, 86, 75);
+  let x1 = 30; 
+  let y1 = 75;
+  let x2 = 100;
+  let y2 = 20;
+  let x3 = 86;
+  let y3 = 75;
+
+  for (let x = 0; x <= sketchWidth; x += 80) { // begins with 0, then adds 40, 80, 120, ...
+    for (let y = 0; y <= sketchHeight; y += 80) {
+      //const xrnd = random(50, 300);
+      // in order to move the whole triangle in a grid like fashion I have to connect the coordinate points with the for loop x and y variables
+      triangle(x1 + x, y1 + y, x2 + x, y2 + y, x3 + x, y3 + y);
 
     }
   }
