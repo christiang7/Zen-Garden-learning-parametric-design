@@ -1,4 +1,4 @@
-// the goal is to draw ...
+// randomized triangles in a grid
 
 // setting variables for canvas size
 const sketchHeight = 400;
