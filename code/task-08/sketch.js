@@ -1,6 +1,6 @@
-// the task is to integrate input fileds and sliders
+// integration of a text input filed and three sliders for rgb control
 
-// declaration of textField variable
+// declaration of textField and slider variables
 let textField;
 let sliderRed;
 let sliderGreen;
@@ -9,39 +9,41 @@ let sliderBlue;
 
 function setup() {
   createCanvas(800, 900);
-  noiseSeed(1); //???
+  //noiseSeed(1); // what does this do EXACTLY?
 
   // text field input
   textField = createInput('Example Exhibition'); // default value
   textField.position(40, 700); // position of the input field
-  textField.size(140); // size of input field
+  textField.size(140); // length of input field
 
-  // sliders 3
+  // rgb sliders syntax (range min, range max, default value)
   sliderRed = createSlider(0, 255, 156);
-  sliderRed.position(40, 750);
+  sliderRed.position(50, 750);
   sliderRed.size(600);
 
   sliderGreen = createSlider(0, 255, 56);
-  sliderGreen.position(40, 805);
+  sliderGreen.position(50, 805);
   sliderGreen.size(600);
 
   sliderBlue = createSlider(0, 255, 233);
-  sliderBlue.position(40, 855);
+  sliderBlue.position(50, 855);
   sliderBlue.size(600);
 
-  // runtergedimmt, damit pc nicht heiss läuft
+  // turning down the frame rate, so the computer does not get hot
   frameRate(2);
 }
 
 
 function draw() {
 
-  background(250); // muss hier in draw rein, damit die worte gelöscht werden können, und nicht übereinander geschrieben werden
+  // background must be iin draw so the words are not written on top of each other
+  background(250);
 
-  // farbe vom stroke
-  stroke(sliderRed.value(), sliderGreen.value(), sliderBlue.value()); //slider.value()x3 
+  // stroke color syntax stroke(r,g,b);
+  stroke(sliderRed.value(), sliderGreen.value(), sliderBlue.value());
   strokeWeight(0.5);
 
+  // fill inside the quad to lighten up the drawing space rgba
   fill(255, 255, 255, 10);
 
   for (let t = 0; t < 2; t += 0.01) {
@@ -56,25 +58,27 @@ function draw() {
     quad(x1, y1, x2, y2, x3, y3, x4, y4);
   }
 
+  // title of the exhibition being filled by the input in the text input field
   noStroke();
   fill('black');
   textSize(80);
-  text(textField.value(), 50, 200);
+  text(textField.value(), 50, 170);
 
-  textSize(50);
-  text(('Maxime Pattern'), 50, 250);
+  textSize(60);
+  text(('Movement Patterns'), 50, 250);
+
   textSize(40);
-  text(('20.05.2022, 19 Uhr'), 50, 280);
+  text(('May 20th 2022 at 7 p.m.'), 50, 300);
 
-  // slider beschriftungen
+  // slider connotations
   textSize(10);
-  text(('red slider'), 40, 745);
-
-  textSize(10);
-  text(('green slider'), 40, 800);
+  text(('red slider'), 50, 745);
 
   textSize(10);
-  text(('blue slider'), 40, 850);
+  text(('green slider'), 50, 800);
+
+  textSize(10);
+  text(('blue slider'), 50, 850);
 
 
   //save('export-' + counter + '.png');
