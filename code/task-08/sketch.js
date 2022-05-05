@@ -9,7 +9,7 @@ let sliderBlue;
 
 function setup() {
   createCanvas(800, 900);
-  // noiseSeed(1);
+  noiseSeed(1); //???
 
   // text field input
   textField = createInput('Example Exhibition'); // default value
@@ -30,7 +30,7 @@ function setup() {
   sliderBlue.size(600);
 
   // runtergedimmt, damit pc nicht heiss läuft
-  //frameRate(2);
+  frameRate(2);
 }
 
 
