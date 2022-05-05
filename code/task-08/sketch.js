@@ -16,6 +16,7 @@ function setup() {
   textField.position(40, 700); // position of the input field
   textField.size(140); // size of input field
 
+  // sliders 3
   sliderRed = createSlider(0, 255, 156);
   sliderRed.position(40, 750);
   sliderRed.size(600);
@@ -28,10 +29,9 @@ function setup() {
   sliderBlue.position(40, 855);
   sliderBlue.size(600);
 
-  frameRate(2);
+  // runtergedimmt, damit pc nicht heiss läuft
+  //frameRate(2);
 }
-
-let counter = 0;
 
 
 function draw() {
@@ -45,14 +45,14 @@ function draw() {
   fill(255, 255, 255, 10);
 
   for (let t = 0; t < 2; t += 0.01) {
-    var x1 = width * noise(t, 1, 3);
-    var x2 = width * noise(t, 200, 5);
-    var x3 = width * noise(t, 20, 5);
-    var x4 = width * noise(t, 8, 10, 200);
+    var x1 = width * noise(t, 1);
+    var x2 = width * noise(t, 200);
+    var x3 = width * noise(t, 20);
+    var x4 = width * noise(t, 8);
     var y1 = height * noise(t, 300);
-    var y2 = height * noise(t + 5, 500, 10);
-    var y3 = height * noise(t + 6, 777, 30);
-    var y4 = height * noise(t + 7, 100, 30);
+    var y2 = height * noise(t, 500);
+    var y3 = height * noise(t, 777);
+    var y4 = height * noise(t, 100);
     quad(x1, y1, x2, y2, x3, y3, x4, y4);
   }
 
@@ -80,9 +80,4 @@ function draw() {
   //save('export-' + counter + '.png');
 
 
-  // musste auskommentiert werden, da der sketch sonst nicht gezeichnet/aktualisiert wurde
-  //counter += 1;
-  //if (counter > 10) {
-  //    noLoop();
-  //}
 }
