@@ -2,7 +2,7 @@
 
 ## concept
 The idea for the semester project is to code a digital zen garden. 
-here is my pseudo algorithm so far how the code should work:
+Here is my pseudo algorithm for how I think the code should/could work:
 
 ...
 
