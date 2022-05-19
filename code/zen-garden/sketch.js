@@ -26,22 +26,69 @@ const sketchHeight = 720;
 const sketchWidth = 1280;
 const circleSize = 100;
 
+
+var formResolution = 5;
+var stepSize = 2;
+var distortionFactor = 1;
+var initRadius = 50;
+var centerX;
+var centerY;
+var x = [];
+var y = [];
+var countMousePressed = 0;
+
 function setup() {
   createCanvas(sketchWidth, sketchHeight);
   background('#EFEBD3');
 }
 
 function draw() {
-  
+  if (countMousePressed > 0) {
+  }
 }
 
 // create stones on mouse click
 function mousePressed() {
   createShape(mouseX, mouseY);
+  countMousePressed += 1;
 }
 
-function createShape(x,y) {
+function createShape(xpoint, ypoint) {
   fill('green');
-  circle(x,y,circleSize * random(0.5,1));
-  console.log('zeichne kreis');
+
+  centerX = mouseX;
+  centerY = mouseY;
+
+  var angle = radians(360 / formResolution);
+  var randomFactor = random(0.5, 2)
+  initRadius = initRadius * randomFactor;
+  var radius = initRadius;
+  for (var i = 0; i < formResolution; i++) {
+    x[i] = cos(angle * i) * initRadius;
+    y[i] = sin(angle * i) * initRadius;
+  }
+
+  for (var j = 0; j <= 50 * randomFactor; j += 1) {
+    // calculate new points
+    for (var i = 0; i < formResolution; i++) {
+      x[i] += random(-stepSize, stepSize);
+      y[i] += random(-stepSize, stepSize);
+      // uncomment the following line to show position of the agents
+      // ellipse(x[i] + centerX, y[i] + centerY, 5, 5);
+    }
+  }
+  beginShape();
+  // first controlpoint
+  curveVertex(x[formResolution - 1] + centerX, y[formResolution - 1] + centerY);
+
+  // only these points are drawn
+  for (var i = 0; i < formResolution; i++) {
+    curveVertex(x[i] + centerX, y[i] + centerY);
+  }
+  curveVertex(x[0] + centerX, y[0] + centerY);
+
+  // end controlpoint
+  curveVertex(x[1] + centerX, y[1] + centerY);
+  endShape();
+  initRadius = 50;
 }
