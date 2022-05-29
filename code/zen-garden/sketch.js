@@ -35,11 +35,14 @@ var centerX;
 var centerY;
 var x = [];
 var y = [];
+var lineDistance = 1.05; // scaling factor of the shape controls the distance of the sandlines
 var countMousePressed = 0;
 
 function setup() {
   createCanvas(sketchWidth, sketchHeight);
   background('#EFEBD3');
+
+
 }
 
 
@@ -56,6 +59,7 @@ function draw() {
 function mousePressed() {
   createShape(mouseX, mouseY);
   countMousePressed += 1;
+  
 }
 
 function createShape(xpoint, ypoint) {
@@ -95,5 +99,40 @@ function createShape(xpoint, ypoint) {
   // end controlpoint
   curveVertex(x[1] + centerX, y[1] + centerY);
   endShape();
+
+  translate(centerX,centerY);
+  scale(lineDistance);
+  centerX=0;
+  centerY=0;
+  noFill();
+  beginShape();
+  // first controlpoint
+  curveVertex(x[formResolution - 1] + centerX, y[formResolution - 1] + centerY);
+
+  // only these points are drawn
+  for (var i = 0; i < formResolution; i++) {
+    curveVertex(x[i] + centerX, y[i] + centerY);
+  }
+  curveVertex(x[0] + centerX, y[0] + centerY);
+
+  // end controlpoint
+  curveVertex(x[1] + centerX, y[1] + centerY);
+  endShape();
+  scale(lineDistance);
+  noFill();
+  beginShape();
+  // first controlpoint
+  curveVertex(x[formResolution - 1] + centerX, y[formResolution - 1] + centerY);
+
+  // only these points are drawn
+  for (var i = 0; i < formResolution; i++) {
+    curveVertex(x[i] + centerX, y[i] + centerY);
+  }
+  curveVertex(x[0] + centerX, y[0] + centerY);
+
+  // end controlpoint
+  curveVertex(x[1] + centerX, y[1] + centerY);
+  endShape();
+
   initRadius = 50;
 }
