@@ -35,8 +35,13 @@ var centerX;
 var centerY;
 var x = [];
 var y = [];
+var stoneShapeArrayX = []; // stores x arrays of the stones
+var stoneShapeArrayY = [];
 var lineDistance = 1.05; // scaling factor of the shape controls the distance of the sandlines
 var countMousePressed = 0;
+var countShape = 0;
+var stoneCenterArrayX = [];// stores the x center of the stones
+var stoneCenterArrayY = [];
 
 function setup() {
   createCanvas(sketchWidth, sketchHeight);
@@ -47,8 +52,7 @@ function setup() {
 
 
 function draw() {
-  if (countMousePressed > 0) {
-  }
+  
 }
 
 // create stones on mouse click
@@ -57,9 +61,65 @@ function draw() {
 // you can find the code on github: https://github.com/generative-design/Code-Package-p5.js/blob/master/01_P/P_2_2_3_01/sketch.js
 
 function mousePressed() {
-  createShape(mouseX, mouseY);
+
+
+  if (((stoneCenterArrayX[0]-initRadius) < mouseX < (stoneCenterArrayX[0]+initRadius)) && ((stoneCenterArrayY[0]-initRadius) < mouseX < (stoneCenterArrayY[0]+initRadius)) ) {
+    countShape = 0;
+    console.log(countShape);
+  }
+  else if (((stoneCenterArrayX[1]-initRadius) < mouseX < (stoneCenterArrayX[1]+initRadius))  && ((stoneCenterArrayY[1]-initRadius) < mouseX < (stoneCenterArrayY[1]+initRadius)) ){
+    countShape = 1;
+    console.log(countShape);
+  }
+  else if (((stoneCenterArrayX[2]-initRadius) < mouseX < (stoneCenterArrayX[2]+initRadius))  && ((stoneCenterArrayY[2]-initRadius) < mouseX < (stoneCenterArrayY[2]+initRadius)) ) {
+    countShape = 2;
+    console.log(countShape);
+  }
+
+
+  translate(stoneCenterArrayX[countShape],stoneCenterArrayY[countShape]);
+  fill('#EFEBD3');
+  if (countMousePressed > 0) {
+    for (var c = 0; c < countMousePressed; c += 1) {
+      //translate(stoneShapeArrayX[countShape],stoneShapeArrayY[countShape]);
+      //centerX=0;
+      //centerY=0;
+      push();
+      scale(Math.pow(lineDistance,countMousePressed-c));
+      beginShape();
+  // first controlpoint
+  curveVertex(stoneShapeArrayX[countShape][formResolution - 1] + stoneCenterArrayX[countShape]*0, stoneShapeArrayY[countShape][formResolution - 1] + stoneCenterArrayY[countShape]*0);
+  // only these points are drawn
+  for (var i = 0; i < formResolution; i++) {
+    curveVertex(stoneShapeArrayX[countShape][i] + stoneCenterArrayX[countShape]*0, stoneShapeArrayY[countShape][i] + stoneCenterArrayY[countShape]*0);
+  }
+  curveVertex(stoneShapeArrayX[countShape][0] + stoneCenterArrayX[countShape]*0, stoneShapeArrayY[countShape][0] + stoneCenterArrayY[countShape]*0);
+  // end controlpoint
+  curveVertex(stoneShapeArrayX[countShape][1] + stoneCenterArrayX[countShape]*0, stoneShapeArrayY[countShape][1] + stoneCenterArrayY[countShape]*0);
+  endShape();
+    pop();
+    }
+    fill('green');
+    beginShape();
+  // first controlpoint
+  curveVertex(stoneShapeArrayX[countShape][formResolution - 1] + stoneCenterArrayX[countShape]*0, stoneShapeArrayY[countShape][formResolution - 1] + stoneCenterArrayY[countShape]*0);
+  // only these points are drawn
+  for (var i = 0; i < formResolution; i++) {
+    curveVertex(stoneShapeArrayX[countShape][i] + stoneCenterArrayX[countShape]*0, stoneShapeArrayY[countShape][i] + stoneCenterArrayY[countShape]*0);
+  }
+  curveVertex(stoneShapeArrayX[countShape][0] + stoneCenterArrayX[countShape]*0, stoneShapeArrayY[countShape][0] + stoneCenterArrayY[countShape]*0);
+  // end controlpoint
+  curveVertex(stoneShapeArrayX[countShape][1] + stoneCenterArrayX[countShape]*0, stoneShapeArrayY[countShape][1] + stoneCenterArrayY[countShape]*0);
+  endShape();
+
+
+
+  }
+  else {
+    createShape(mouseX, mouseY);
+    
+  }
   countMousePressed += 1;
-  
 }
 
 function createShape(xpoint, ypoint) {
@@ -99,40 +159,47 @@ function createShape(xpoint, ypoint) {
   // end controlpoint
   curveVertex(x[1] + centerX, y[1] + centerY);
   endShape();
+  stoneShapeArrayX[countShape] = x;
+  stoneShapeArrayY[countShape] = y;
+  //countShape+=1;
 
-  translate(centerX,centerY);
-  scale(lineDistance);
-  centerX=0;
-  centerY=0;
-  noFill();
-  beginShape();
-  // first controlpoint
-  curveVertex(x[formResolution - 1] + centerX, y[formResolution - 1] + centerY);
+  stoneCenterArrayX[countShape] = centerX;
+  stoneCenterArrayY[countShape] = centerY;
 
-  // only these points are drawn
-  for (var i = 0; i < formResolution; i++) {
-    curveVertex(x[i] + centerX, y[i] + centerY);
-  }
-  curveVertex(x[0] + centerX, y[0] + centerY);
+  // translate(centerX,centerY);
+  // scale(lineDistance);
+  // centerX=0;
+  // centerY=0;
+  // noFill();
+  
+  // beginShape();
+  // // first controlpoint
+  // curveVertex(x[formResolution - 1] + centerX, y[formResolution - 1] + centerY);
 
-  // end controlpoint
-  curveVertex(x[1] + centerX, y[1] + centerY);
-  endShape();
-  scale(lineDistance);
-  noFill();
-  beginShape();
-  // first controlpoint
-  curveVertex(x[formResolution - 1] + centerX, y[formResolution - 1] + centerY);
+  // // only these points are drawn
+  // for (var i = 0; i < formResolution; i++) {
+  //   curveVertex(x[i] + centerX, y[i] + centerY);
+  // }
+  // curveVertex(x[0] + centerX, y[0] + centerY);
 
-  // only these points are drawn
-  for (var i = 0; i < formResolution; i++) {
-    curveVertex(x[i] + centerX, y[i] + centerY);
-  }
-  curveVertex(x[0] + centerX, y[0] + centerY);
+  // // end controlpoint
+  // curveVertex(x[1] + centerX, y[1] + centerY);
+  // endShape();
+  // scale(lineDistance);
+  // noFill();
+  // beginShape();
+  // // first controlpoint
+  // curveVertex(x[formResolution - 1] + centerX, y[formResolution - 1] + centerY);
 
-  // end controlpoint
-  curveVertex(x[1] + centerX, y[1] + centerY);
-  endShape();
+  // // only these points are drawn
+  // for (var i = 0; i < formResolution; i++) {
+  //   curveVertex(x[i] + centerX, y[i] + centerY);
+  // }
+  // curveVertex(x[0] + centerX, y[0] + centerY);
+
+  // // end controlpoint
+  // curveVertex(x[1] + centerX, y[1] + centerY);
+  // endShape();
 
   initRadius = 50;
 }
