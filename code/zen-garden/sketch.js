@@ -24,8 +24,8 @@
 // setting variables for canvas size (16:9 format)
 const sketchHeight = 720;
 const sketchWidth = 1280;
-const circleSize = 100;
 
+const circleSize = 100;
 
 var formResolution = 5;
 var stepSize = 2;
@@ -42,12 +42,17 @@ function setup() {
   background('#EFEBD3');
 }
 
+
 function draw() {
   if (countMousePressed > 0) {
   }
 }
 
 // create stones on mouse click
+
+// this code part is based on generative gestaltung exercise P_2_2_3_01 (http://www.generative-gestaltung.de/2/sketches/?01_P/P_2_2_3_01). 
+// you can find the code on github: https://github.com/generative-design/Code-Package-p5.js/blob/master/01_P/P_2_2_3_01/sketch.js
+
 function mousePressed() {
   createShape(mouseX, mouseY);
   countMousePressed += 1;
