@@ -230,7 +230,7 @@ function createShape(xpoint, ypoint) {
 
   countShape += 1;
   
-  console.log(countShape);
+  console.log(countShape)
   // translate(centerX,centerY);
   // scale(lineDistance);
   // centerX=0;
