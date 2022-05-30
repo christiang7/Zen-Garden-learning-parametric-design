@@ -222,8 +222,8 @@ function createShape(xpoint, ypoint) {
   // end controlpoint
   curveVertex(x[1] + centerX, y[1] + centerY);
   endShape();
-  stoneShapeArrayX[countShape] = x;
-  stoneShapeArrayY[countShape] = y;
+  stoneShapeArrayX.push(x);
+  stoneShapeArrayY.push(y);
   
   stoneCenterArrayX[countShape] = centerX;
   stoneCenterArrayY[countShape] = centerY;
