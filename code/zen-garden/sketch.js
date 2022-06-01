@@ -65,6 +65,7 @@ function mousePressed() {
 
   if (((stoneCenterArrayX[0] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[0] + initRadius)) && ((stoneCenterArrayY[0] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[0] + initRadius)) && (countShape > 0)) {
     indexShape = 0;
+    //WHICH SHAPE WAS CLICKED ON???
     console.log(indexShape);
     translate(stoneCenterArrayX[0], stoneCenterArrayY[0]);
     fill('#EFEBD3');
