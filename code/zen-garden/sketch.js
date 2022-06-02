@@ -74,7 +74,8 @@ function mousePressed() {
       //centerX=0;
       //centerY=0;
       push();
-      scale(Math.pow(lineDistance, countMousePressed[0] - c));
+      //scale(Math.pow(lineDistance, countMousePressed[0] - c));
+      scale(1+(countMousePressed[indexShape] -c)*0.1);
       strokeWeight(1/Math.pow(lineDistance, countMousePressed[0] - c));
       beginShape();
       // first controlpoint
@@ -139,7 +140,8 @@ function mousePressed() {
       //centerX=0;
       //centerY=0;
       push();
-      scale(Math.pow(lineDistance, countMousePressed[1] - c));
+      //scale(Math.pow(lineDistance, countMousePressed[1] - c));
+      scale(1+(countMousePressed[indexShape] -c)*0.1);
       strokeWeight(1/Math.pow(lineDistance, countMousePressed[1] - c));
       beginShape();
       // first controlpoint
@@ -198,7 +200,8 @@ function mousePressed() {
       //centerX=0;
       //centerY=0;
       push();
-      scale(Math.pow(lineDistance, countMousePressed[2] - c));
+      //scale(Math.pow(lineDistance, countMousePressed[2] - c));
+      scale(1+(countMousePressed[indexShape] -c)*0.1);
       strokeWeight(1/Math.pow(lineDistance, countMousePressed[2] - c));
       beginShape();
       // first controlpoint
@@ -275,8 +278,18 @@ function createShape(xpoint, ypoint) {
   for (var j = 0; j <= 50 * randomFactor; j += 1) {
     // calculate new points
     for (var i = 0; i < formResolution; i++) {
-      x[i] += random(-stepSize, stepSize);
-      y[i] += random(-stepSize, stepSize);
+      if ((i === 3) && (countShape === 1)) {
+        x[i] += random(-stepSize, stepSize)- 0.5;
+        y[i] += random(-stepSize, stepSize)-0.5;
+      }
+      else if ((i === 4) && (countShape === 1)) {
+        x[i] += random(-stepSize, stepSize)- 0.5;
+        y[i] += random(-stepSize, stepSize);
+      }
+      else {
+        x[i] += random(-stepSize, stepSize);
+        y[i] += random(-stepSize, stepSize);
+      }
       // uncomment the following line to show position of the agents
       // ellipse(x[i] + centerX, y[i] + centerY, 5, 5);
     }
@@ -368,3 +381,9 @@ function drawAllShapes(){
 
 
 }
+
+
+
+// für naechste Woche Aufgabe:
+// Code verschoenern
+// Anhand von initRadius in einem array die Groesse der Sandlinien anpassen 
