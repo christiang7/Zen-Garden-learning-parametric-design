@@ -43,6 +43,7 @@ var indexShape = 0;
 var countShape = 0;
 var stoneCenterArrayX = [];// stores the x center of the stones
 var stoneCenterArrayY = [];
+var radiusArray = [];
 
 function setup() {
   createCanvas(sketchWidth, sketchHeight);
@@ -75,7 +76,7 @@ function mousePressed() {
       //centerY=0;
       push();
       //scale(Math.pow(lineDistance, countMousePressed[0] - c));
-      scale(1+(countMousePressed[indexShape] -c)*0.1);
+      scale(1+(countMousePressed[indexShape] -c)*10/radiusArray[indexShape]); // factor 0.1
       strokeWeight(1/Math.pow(lineDistance, countMousePressed[0] - c));
       beginShape();
       // first controlpoint
@@ -141,7 +142,7 @@ function mousePressed() {
       //centerY=0;
       push();
       //scale(Math.pow(lineDistance, countMousePressed[1] - c));
-      scale(1+(countMousePressed[indexShape] -c)*0.1);
+      scale(1+(countMousePressed[indexShape] -c)*10/radiusArray[indexShape]);
       strokeWeight(1/Math.pow(lineDistance, countMousePressed[1] - c));
       beginShape();
       // first controlpoint
@@ -201,7 +202,7 @@ function mousePressed() {
       //centerY=0;
       push();
       //scale(Math.pow(lineDistance, countMousePressed[2] - c));
-      scale(1+(countMousePressed[indexShape] -c)*0.1);
+      scale(1+(countMousePressed[indexShape] -c)*10/radiusArray[indexShape]);
       strokeWeight(1/Math.pow(lineDistance, countMousePressed[2] - c));
       beginShape();
       // first controlpoint
@@ -319,7 +320,7 @@ function createShape(xpoint, ypoint) {
   stoneCenterArrayY[countShape] = centerY;
   //console.log(stoneCenterArrayX[countShape]);
   //console.log(stoneCenterArrayY[countShape]);
-
+  radiusArray[countShape] = initRadius;
 
   countShape += 1;
   
