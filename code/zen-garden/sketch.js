@@ -48,7 +48,11 @@ var radiusArray = [];
 function setup() {
   createCanvas(sketchWidth, sketchHeight);
   background('#EFEBD3');
-
+  strokeWeight(1.05);
+  stroke(20,40,20);
+  for (let h=0; h < sketchHeight; h+=10){
+    line(0,0+h,sketchWidth,0+h);
+  }
 
 }
 
@@ -76,8 +80,8 @@ function mousePressed() {
       //centerY=0;
       push();
       //scale(Math.pow(lineDistance, countMousePressed[0] - c));
-      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.07) ); // factor 0.1
-      strokeWeight(1 / Math.pow(100/radiusArray[indexShape], countMousePressed[0] - c));
+      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.06) ); // factor 0.1
+      strokeWeight(1 / Math.pow(Math.pow(100/radiusArray[indexShape], 1/10), countMousePressed[0] - c));
       beginShape();
       // first controlpoint
       curveVertex(stoneShapeArrayX[0][formResolution - 1] + stoneCenterArrayX[0] * 0, stoneShapeArrayY[0][formResolution - 1] + stoneCenterArrayY[0] * 0);
@@ -91,7 +95,7 @@ function mousePressed() {
       endShape();
       pop();
     }
-    fill('green');
+    fill('#7F9444');
 
     // beginShape();
     // // first controlpoint
@@ -142,8 +146,8 @@ function mousePressed() {
       //centerY=0;
       push();
       //scale(Math.pow(lineDistance, countMousePressed[1] - c));
-      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.07));
-      strokeWeight(1 / Math.pow(100/radiusArray[indexShape], countMousePressed[1] - c));
+      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.06));
+      strokeWeight(1 / Math.pow(Math.pow(100/radiusArray[indexShape], 1/10), countMousePressed[1] - c));
       beginShape();
       // first controlpoint
       curveVertex(stoneShapeArrayX[1][formResolution - 1] + stoneCenterArrayX[1] * 0, stoneShapeArrayY[1][formResolution - 1] + stoneCenterArrayY[1] * 0);
@@ -157,7 +161,7 @@ function mousePressed() {
       endShape();
       pop();
     }
-    fill('green');
+    fill('#7F9444');
     // beginShape();
     // // first controlpoint
     // curveVertex(stoneShapeArrayX[1][formResolution - 1] + stoneCenterArrayX[1] * 0, stoneShapeArrayY[1][formResolution - 1] + stoneCenterArrayY[1] * 0);
@@ -202,8 +206,8 @@ function mousePressed() {
       //centerY=0;
       push();
       //scale(Math.pow(lineDistance, countMousePressed[2] - c));
-      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.07));
-      strokeWeight(1 / Math.pow(100/radiusArray[indexShape], countMousePressed[2] - c));
+      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.06));
+      strokeWeight(1 / Math.pow(Math.pow(100/radiusArray[indexShape], 1/10), countMousePressed[2] - c));
       beginShape();
       // first controlpoint
       curveVertex(stoneShapeArrayX[2][formResolution - 1] + stoneCenterArrayX[2] * 0, stoneShapeArrayY[2][formResolution - 1] + stoneCenterArrayY[2] * 0);
@@ -217,7 +221,7 @@ function mousePressed() {
       endShape();
       pop();
     }
-    fill('green');
+    fill('#7F9444');
     // beginShape();
     // // first controlpoint
     // curveVertex(stoneShapeArrayX[2][formResolution - 1] + stoneCenterArrayX[2] * 0, stoneShapeArrayY[2][formResolution - 1] + stoneCenterArrayY[2] * 0);
@@ -262,7 +266,7 @@ function mousePressed() {
 }
 
 function createShape(xpoint, ypoint) {
-  fill('green');
+  fill('#7F9444');
 
   centerX = mouseX;
   centerY = mouseY;
