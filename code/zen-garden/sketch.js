@@ -80,8 +80,14 @@ function mousePressed() {
       //centerY=0;
       push();
       //scale(Math.pow(lineDistance, countMousePressed[0] - c));
-      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.06) ); // factor 0.1
-      strokeWeight(1 / Math.pow(1.04+0*(1/(radiusArray[indexShape]*radiusArray[indexShape])), countMousePressed[0] - c));
+      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.06) );
+      if (radiusArray[indexShape]<80) {
+        lineDistance=1.08;
+      }
+      else {
+        lineDistance=1.04;
+      }
+      strokeWeight(1/Math.pow(lineDistance, countMousePressed[indexShape] - c));
       beginShape();
       // first controlpoint
       curveVertex(stoneShapeArrayX[0][formResolution - 1] + stoneCenterArrayX[0] * 0, stoneShapeArrayY[0][formResolution - 1] + stoneCenterArrayY[0] * 0);
@@ -146,9 +152,14 @@ function mousePressed() {
       //centerY=0;
       push();
       //scale(Math.pow(lineDistance, countMousePressed[1] - c));
-      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.06));
-      //strokeWeight(1 / Math.pow(Math.pow(100/radiusArray[indexShape], 1/10), countMousePressed[1] - c));
-      strokeWeight(1 / Math.pow(1.04+0*(1/(radiusArray[indexShape]*radiusArray[indexShape])), countMousePressed[1] - c));
+      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.06) );
+      if (radiusArray[indexShape]<80) {
+        lineDistance=1.08;
+      }
+      else {
+        lineDistance=1.04;
+      }
+      strokeWeight(1/Math.pow(lineDistance, countMousePressed[indexShape] - c));
       beginShape();
       // first controlpoint
       curveVertex(stoneShapeArrayX[1][formResolution - 1] + stoneCenterArrayX[1] * 0, stoneShapeArrayY[1][formResolution - 1] + stoneCenterArrayY[1] * 0);
@@ -207,8 +218,14 @@ function mousePressed() {
       //centerY=0;
       push();
       //scale(Math.pow(lineDistance, countMousePressed[2] - c));
-      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.06));
-      strokeWeight(1 / Math.pow(1.04+0*(1/(radiusArray[indexShape]*radiusArray[indexShape])), countMousePressed[2] - c));
+      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.06) );
+      if (radiusArray[indexShape]<80) {
+        lineDistance=1.08;
+      }
+      else {
+        lineDistance=1.04;
+      }
+      strokeWeight(1/Math.pow(lineDistance, countMousePressed[indexShape] - c));
       beginShape();
       // first controlpoint
       curveVertex(stoneShapeArrayX[2][formResolution - 1] + stoneCenterArrayX[2] * 0, stoneShapeArrayY[2][formResolution - 1] + stoneCenterArrayY[2] * 0);
