@@ -32,15 +32,27 @@ let sliderRed;
 let sliderGreen;
 let sliderBlue;
 
-
-function setup() {
-  var canvas = createCanvas(sketchWidth, sketchHeight);
-  canvas.parent('sketch-js');
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
   background('#EFEBD3');
   strokeWeight(1.05);
   stroke(20, 40, 20);
-  for (let h = 0; h < sketchHeight; h += 10) {
-    line(0, 0 + h, sketchWidth, 0 + h);
+  for (let h = 0; h < windowHeight; h += 10) {
+    line(0, 0 + h, windowWidth, 0 + h);
+  }
+}
+
+
+function setup() {
+  var canvas = createCanvas(windowWidth, windowHeight);
+  //canvas.parent('sketch-js');
+  canvas.position(0,0);
+  canvas.style('z-index','-1');
+  background('#EFEBD3');
+  strokeWeight(1.05);
+  stroke(20, 40, 20);
+  for (let h = 0; h < windowHeight; h += 10) {
+    line(0, 0 + h, windowWidth, 0 + h);
   }
 
   // controls for color
