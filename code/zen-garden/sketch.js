@@ -39,7 +39,7 @@ var stoneShapeArrayX = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]; // s
 var stoneShapeArrayY = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
 var lineDistance = 1.05; // scaling factor of the shape controls the distance of the sandlines
 var countMousePressed = [0, 0, 0];
-var indexShape = 0;
+//var indexShape = 0;
 var countShape = 0;
 var stoneCenterArrayX = [];// stores the x center of the stones
 var stoneCenterArrayY = [];
@@ -69,218 +69,18 @@ function draw() {
 function mousePressed() {
 
   if (((stoneCenterArrayX[0] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[0] + initRadius)) && ((stoneCenterArrayY[0] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[0] + initRadius)) && (countShape > 0)) {
-    indexShape = 0;
-    //WHICH SHAPE WAS CLICKED ON???
-    //console.log(indexShape);
-    translate(stoneCenterArrayX[indexShape], stoneCenterArrayY[indexShape]);
-    fill('#EFEBD3');
-    for (var c = 0; c <= countMousePressed[0]; c += 1) {
-      //translate(stoneShapeArrayX[0],stoneShapeArrayY[0]);
-      //centerX=0;
-      //centerY=0;
-      push();
-      //scale(Math.pow(lineDistance, countMousePressed[0] - c));
-      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.06) );
-      if (radiusArray[indexShape]<80) {
-        lineDistance=1.08;
-      }
-      else {
-        lineDistance=1.04;
-      }
-      strokeWeight(1/Math.pow(lineDistance, countMousePressed[indexShape] - c));
-      beginShape();
-      // first controlpoint
-      curveVertex(stoneShapeArrayX[0][formResolution - 1] + stoneCenterArrayX[0] * 0, stoneShapeArrayY[0][formResolution - 1] + stoneCenterArrayY[0] * 0);
-      // only these points are drawn
-      for (var i = 0; i < formResolution; i++) {
-        curveVertex(stoneShapeArrayX[0][i] + stoneCenterArrayX[0] * 0, stoneShapeArrayY[0][i] + stoneCenterArrayY[0] * 0);
-      }
-      curveVertex(stoneShapeArrayX[0][0] + stoneCenterArrayX[0] * 0, stoneShapeArrayY[0][0] + stoneCenterArrayY[0] * 0);
-      // end controlpoint
-      curveVertex(stoneShapeArrayX[0][1] + stoneCenterArrayX[0] * 0, stoneShapeArrayY[0][1] + stoneCenterArrayY[0] * 0);
-      endShape();
-      pop();
-    }
-    fill('#7F9444');
-
-    // beginShape();
-    // // first controlpoint
-    // curveVertex(stoneShapeArrayX[0][formResolution - 1] + stoneCenterArrayX[0] * 0, stoneShapeArrayY[0][formResolution - 1] + stoneCenterArrayY[0] * 0);
-    // // only these points are drawn
-    // for (var i = 0; i < formResolution; i++) {
-    //   curveVertex(stoneShapeArrayX[0][i] + stoneCenterArrayX[0] * 0, stoneShapeArrayY[0][i] + stoneCenterArrayY[0] * 0);
-    // }
-    // curveVertex(stoneShapeArrayX[0][0] + stoneCenterArrayX[0] * 0, stoneShapeArrayY[0][0] + stoneCenterArrayY[0] * 0);
-    // // end controlpoint
-    // curveVertex(stoneShapeArrayX[0][1] + stoneCenterArrayX[0] * 0, stoneShapeArrayY[0][1] + stoneCenterArrayY[0] * 0);
-    // endShape();
-
-
-
-    //translate(0,0);
-
-    translate(-stoneCenterArrayX[indexShape], -stoneCenterArrayY[indexShape]);
-
-    for (let l = 0; l < countShape; l += 1) {
-      //translate(stoneCenterArrayX[l], stoneCenterArrayY[l]);
-      beginShape();
-      // first controlpoint
-      curveVertex(stoneShapeArrayX[l][formResolution - 1] + stoneCenterArrayX[l], stoneShapeArrayY[l][formResolution - 1] + stoneCenterArrayY[l]);
-      // only these points are drawn
-      for (var i = 0; i < formResolution; i++) {
-        curveVertex(stoneShapeArrayX[l][i] + stoneCenterArrayX[l], stoneShapeArrayY[l][i] + stoneCenterArrayY[l]);
-      }
-      curveVertex(stoneShapeArrayX[l][0] + stoneCenterArrayX[l], stoneShapeArrayY[l][0] + stoneCenterArrayY[l]);
-      // end controlpoint
-      curveVertex(stoneShapeArrayX[l][1] + stoneCenterArrayX[l], stoneShapeArrayY[l][1] + stoneCenterArrayY[l]);
-      endShape();
-      //console.log(stoneCenterArrayX[l])
-      //console.log(stoneCenterArrayY[l])
-      translate(0, 0);
-    }
-    //console.log(countShape)
-    countMousePressed[0] += 1;
+    drawSandlines(0);
   }
   else if (((stoneCenterArrayX[1] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[1] + initRadius)) && ((stoneCenterArrayY[1] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[1] + initRadius)) && (countShape > 0)) {
-    indexShape = 1;
-    console.log(indexShape);
-    translate(stoneCenterArrayX[1], stoneCenterArrayY[1]);
-    fill('#EFEBD3');
-    for (var c = 0; c <= countMousePressed[1]; c += 1) {
-      //translate(stoneShapeArrayX[1],stoneShapeArrayY[1]);
-      //centerX=0;
-      //centerY=0;
-      push();
-      //scale(Math.pow(lineDistance, countMousePressed[1] - c));
-      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.06) );
-      if (radiusArray[indexShape]<80) {
-        lineDistance=1.08;
-      }
-      else {
-        lineDistance=1.04;
-      }
-      strokeWeight(1/Math.pow(lineDistance, countMousePressed[indexShape] - c));
-      beginShape();
-      // first controlpoint
-      curveVertex(stoneShapeArrayX[1][formResolution - 1] + stoneCenterArrayX[1] * 0, stoneShapeArrayY[1][formResolution - 1] + stoneCenterArrayY[1] * 0);
-      // only these points are drawn
-      for (var i = 0; i < formResolution; i++) {
-        curveVertex(stoneShapeArrayX[1][i] + stoneCenterArrayX[1] * 0, stoneShapeArrayY[1][i] + stoneCenterArrayY[1] * 0);
-      }
-      curveVertex(stoneShapeArrayX[1][0] + stoneCenterArrayX[1] * 0, stoneShapeArrayY[1][0] + stoneCenterArrayY[1] * 0);
-      // end controlpoint
-      curveVertex(stoneShapeArrayX[1][1] + stoneCenterArrayX[1] * 0, stoneShapeArrayY[1][1] + stoneCenterArrayY[1] * 0);
-      endShape();
-      pop();
-    }
-    fill('#7F9444');
-    // beginShape();
-    // // first controlpoint
-    // curveVertex(stoneShapeArrayX[1][formResolution - 1] + stoneCenterArrayX[1] * 0, stoneShapeArrayY[1][formResolution - 1] + stoneCenterArrayY[1] * 0);
-    // // only these points are drawn
-    // for (var i = 0; i < formResolution; i++) {
-    //   curveVertex(stoneShapeArrayX[1][i] + stoneCenterArrayX[1] * 0, stoneShapeArrayY[1][i] + stoneCenterArrayY[1] * 0);
-    // }
-    // curveVertex(stoneShapeArrayX[1][0] + stoneCenterArrayX[1] * 0, stoneShapeArrayY[1][0] + stoneCenterArrayY[1] * 0);
-    // // end controlpoint
-    // curveVertex(stoneShapeArrayX[1][1] + stoneCenterArrayX[1] * 0, stoneShapeArrayY[1][1] + stoneCenterArrayY[1] * 0);
-    // endShape();
-
-    translate(-stoneCenterArrayX[1], -stoneCenterArrayY[1]);
-
-    for (let l = 0; l < countShape; l += 1) {
-      //translate(stoneCenterArrayX[l], stoneCenterArrayY[l]);
-      beginShape();
-      // first controlpoint
-      curveVertex(stoneShapeArrayX[l][formResolution - 1] + stoneCenterArrayX[l], stoneShapeArrayY[l][formResolution - 1] + stoneCenterArrayY[l]);
-      // only these points are drawn
-      for (var i = 0; i < formResolution; i++) {
-        curveVertex(stoneShapeArrayX[l][i] + stoneCenterArrayX[l], stoneShapeArrayY[l][i] + stoneCenterArrayY[l]);
-      }
-      curveVertex(stoneShapeArrayX[l][0] + stoneCenterArrayX[l], stoneShapeArrayY[l][0] + stoneCenterArrayY[l]);
-      // end controlpoint
-      curveVertex(stoneShapeArrayX[l][1] + stoneCenterArrayX[l], stoneShapeArrayY[l][1] + stoneCenterArrayY[l]);
-      endShape();
-      //console.log(stoneCenterArrayX[l])
-      //console.log(stoneCenterArrayY[l])
-      translate(0, 0);
-    }
-    countMousePressed[1] += 1;
+    drawSandlines(1);
   }
   else if (((stoneCenterArrayX[2] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[2] + initRadius)) && ((stoneCenterArrayY[2] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[2] + initRadius)) && (countShape > 0)) {
-    indexShape = 2;
-    console.log(indexShape);
-    translate(stoneCenterArrayX[2], stoneCenterArrayY[2]);
-    fill('#EFEBD3');
-    for (var c = 0; c <= countMousePressed[2]; c += 1) {
-      //translate(stoneShapeArrayX[indexShape],stoneShapeArrayY[indexShape]);
-      //centerX=0;
-      //centerY=0;
-      push();
-      //scale(Math.pow(lineDistance, countMousePressed[2] - c));
-      scale(1 + (countMousePressed[indexShape] - c) * 10 / Math.pow(radiusArray[indexShape], 1.06) );
-      if (radiusArray[indexShape]<80) {
-        lineDistance=1.08;
-      }
-      else {
-        lineDistance=1.04;
-      }
-      strokeWeight(1/Math.pow(lineDistance, countMousePressed[indexShape] - c));
-      beginShape();
-      // first controlpoint
-      curveVertex(stoneShapeArrayX[2][formResolution - 1] + stoneCenterArrayX[2] * 0, stoneShapeArrayY[2][formResolution - 1] + stoneCenterArrayY[2] * 0);
-      // only these points are drawn
-      for (var i = 0; i < formResolution; i++) {
-        curveVertex(stoneShapeArrayX[2][i] + stoneCenterArrayX[2] * 0, stoneShapeArrayY[2][i] + stoneCenterArrayY[2] * 0);
-      }
-      curveVertex(stoneShapeArrayX[2][0] + stoneCenterArrayX[2] * 0, stoneShapeArrayY[2][0] + stoneCenterArrayY[2] * 0);
-      // end controlpoint
-      curveVertex(stoneShapeArrayX[2][1] + stoneCenterArrayX[2] * 0, stoneShapeArrayY[2][1] + stoneCenterArrayY[2] * 0);
-      endShape();
-      pop();
-    }
-    fill('#7F9444');
-    // beginShape();
-    // // first controlpoint
-    // curveVertex(stoneShapeArrayX[2][formResolution - 1] + stoneCenterArrayX[2] * 0, stoneShapeArrayY[2][formResolution - 1] + stoneCenterArrayY[2] * 0);
-    // // only these points are drawn
-    // for (var i = 0; i < formResolution; i++) {
-    //   curveVertex(stoneShapeArrayX[2][i] + stoneCenterArrayX[2] * 0, stoneShapeArrayY[2][i] + stoneCenterArrayY[2] * 0);
-    // }
-    // curveVertex(stoneShapeArrayX[2][0] + stoneCenterArrayX[2] * 0, stoneShapeArrayY[2][0] + stoneCenterArrayY[2] * 0);
-    // // end controlpoint
-    // curveVertex(stoneShapeArrayX[2][1] + stoneCenterArrayX[2] * 0, stoneShapeArrayY[2][1] + stoneCenterArrayY[2] * 0);
-    // endShape();
-    //drawAllShapes();
-
-    translate(-stoneCenterArrayX[2], -stoneCenterArrayY[2]);
-
-    for (let l = 0; l < countShape; l += 1) {
-      //translate(stoneCenterArrayX[l], stoneCenterArrayY[l]);
-      beginShape();
-      // first controlpoint
-      curveVertex(stoneShapeArrayX[l][formResolution - 1] + stoneCenterArrayX[l], stoneShapeArrayY[l][formResolution - 1] + stoneCenterArrayY[l]);
-      // only these points are drawn
-      for (var i = 0; i < formResolution; i++) {
-        curveVertex(stoneShapeArrayX[l][i] + stoneCenterArrayX[l], stoneShapeArrayY[l][i] + stoneCenterArrayY[l]);
-      }
-      curveVertex(stoneShapeArrayX[l][0] + stoneCenterArrayX[l], stoneShapeArrayY[l][0] + stoneCenterArrayY[l]);
-      // end controlpoint
-      curveVertex(stoneShapeArrayX[l][1] + stoneCenterArrayX[l], stoneShapeArrayY[l][1] + stoneCenterArrayY[l]);
-      endShape();
-      //console.log(stoneCenterArrayX[l])
-      //console.log(stoneCenterArrayY[l])
-      translate(0, 0);
-    }
-
-    countMousePressed[2] += 1;
+    drawSandlines(2);
   }
   else if (countShape <= 2) {
     createShape(mouseX, mouseY);
   }
-  //countMousePressed += 1;
   translate(0, 0);
-  //console.log(countShape);
 }
 
 function createShape(xpoint, ypoint) {
@@ -297,105 +97,55 @@ function createShape(xpoint, ypoint) {
     x[i] = cos(angle * i) * initRadius;
     y[i] = sin(angle * i) * initRadius;
   }
+
   const longStone = random(0, 2);
-  console.log(longStone);
+
   for (var j = 0; j <= 50 * randomFactor; j += 1) {
     // calculate new points
     for (var i = 0; i < formResolution; i++) {
       if ((0 <= longStone) && (longStone < 1) && (i === 1) && (countShape === 1)) {
-        //if ((i === 1) && (countShape === 1)) {
           x[i] += random(-stepSize, stepSize);
           y[i] += random(-stepSize, stepSize) + 1;
-        //}
       }
       else if ((0 <= longStone) && (longStone < 1) && (i === 2) && (countShape === 1)) {
-        //if ((i === 1) && (countShape === 1)) {
           x[i] += random(-stepSize, stepSize);
           y[i] += random(-stepSize, stepSize) + 1;
-        //}
       }
       else if ((1 <= longStone) && (i === 3) && (countShape === 1)) {
-        //if ((i === 3) && (countShape === 1)) {
           x[i] += random(-stepSize, stepSize);
           y[i] += random(-stepSize, stepSize)-1;
-        //}
       }
       else {
         x[i] += random(-stepSize, stepSize);
         y[i] += random(-stepSize, stepSize);
       }
-      // x[i] += random(-stepSize, stepSize);
-      //   y[i] += random(-stepSize, stepSize);
-      // uncomment the following line to show position of the agents
-      // ellipse(x[i] + centerX, y[i] + centerY, 5, 5);
+
     }
   }
+
   beginShape();
   // first controlpoint
   curveVertex(x[formResolution - 1] + centerX, y[formResolution - 1] + centerY);
-
   // only these points are drawn
   for (var i = 0; i < formResolution; i++) {
     curveVertex(x[i] + centerX, y[i] + centerY);
   }
   curveVertex(x[0] + centerX, y[0] + centerY);
-
   // end controlpoint
   curveVertex(x[1] + centerX, y[1] + centerY);
   endShape();
+
   for (let k = 0; k < formResolution; k += 1) {
     stoneShapeArrayX[countShape][k] = x[k];
     stoneShapeArrayY[countShape][k] = y[k];
   }
-
-  //stoneShapeArrayX[countShape]= x;
-  //stoneShapeArrayY[countShape]= y;
-
   stoneCenterArrayX[countShape] = centerX;
   stoneCenterArrayY[countShape] = centerY;
-  //console.log(stoneCenterArrayX[countShape]);
-  //console.log(stoneCenterArrayY[countShape]);
   radiusArray[countShape] = initRadius;
-
   countShape += 1;
 
-  //console.log(countShape)
-  // translate(centerX,centerY);
-  // scale(lineDistance);
-  // centerX=0;
-  // centerY=0;
-  // noFill();
-
-  // beginShape();
-  // // first controlpoint
-  // curveVertex(x[formResolution - 1] + centerX, y[formResolution - 1] + centerY);
-
-  // // only these points are drawn
-  // for (var i = 0; i < formResolution; i++) {
-  //   curveVertex(x[i] + centerX, y[i] + centerY);
-  // }
-  // curveVertex(x[0] + centerX, y[0] + centerY);
-
-  // // end controlpoint
-  // curveVertex(x[1] + centerX, y[1] + centerY);
-  // endShape();
-  // scale(lineDistance);
-  // noFill();
-  // beginShape();
-  // // first controlpoint
-  // curveVertex(x[formResolution - 1] + centerX, y[formResolution - 1] + centerY);
-
-  // // only these points are drawn
-  // for (var i = 0; i < formResolution; i++) {
-  //   curveVertex(x[i] + centerX, y[i] + centerY);
-  // }
-  // curveVertex(x[0] + centerX, y[0] + centerY);
-
-  // // end controlpoint
-  // curveVertex(x[1] + centerX, y[1] + centerY);
-  // endShape();
-
   initRadius = 50;
+  
 }
 
 
@@ -403,23 +153,56 @@ function drawAllShapes() {
   for (let l = 0; l < countShape; l += 1) {
     beginShape();
     // first controlpoint
-    curveVertex(stoneShapeArrayX[l][formResolution - 1], stoneShapeArrayY[l][formResolution - 1]);
+    curveVertex(stoneShapeArrayX[l][formResolution - 1] + stoneCenterArrayX[l], stoneShapeArrayY[l][formResolution - 1] + stoneCenterArrayY[l]);
     // only these points are drawn
     for (var i = 0; i < formResolution; i++) {
-      curveVertex(stoneShapeArrayX[l][i], stoneShapeArrayY[l][i]);
+      curveVertex(stoneShapeArrayX[l][i] + stoneCenterArrayX[l], stoneShapeArrayY[l][i] + stoneCenterArrayY[l]);
     }
-    curveVertex(stoneShapeArrayX[l][0], stoneShapeArrayY[l][0]);
+    curveVertex(stoneShapeArrayX[l][0] + stoneCenterArrayX[l], stoneShapeArrayY[l][0] + stoneCenterArrayY[l]);
     // end controlpoint
-    curveVertex(stoneShapeArrayX[l][1], stoneShapeArrayY[l][1]);
+    curveVertex(stoneShapeArrayX[l][1] + stoneCenterArrayX[l], stoneShapeArrayY[l][1] + stoneCenterArrayY[l]);
     endShape();
+    translate(0, 0);
   }
-
-
-
 }
 
+function drawOneShape(index) {
+      beginShape();
+      // first controlpoint
+      curveVertex(stoneShapeArrayX[index][formResolution - 1] , stoneShapeArrayY[index][formResolution - 1] );
+      // only these points are drawn
+      for (var i = 0; i < formResolution; i++) {
+        curveVertex(stoneShapeArrayX[index][i] , stoneShapeArrayY[index][i] );
+      }
+      curveVertex(stoneShapeArrayX[index][0] , stoneShapeArrayY[index][0] );
+      // end controlpoint
+      curveVertex(stoneShapeArrayX[index][1] , stoneShapeArrayY[index][1] );
+      endShape();
+}
 
+function drawSandlines(index) {
+  translate(stoneCenterArrayX[index], stoneCenterArrayY[index]);
+  fill('#EFEBD3');
+
+  for (var c = 0; c <= countMousePressed[index]; c += 1) {
+    push();
+    scale(1 + (countMousePressed[index] - c) * 10 / Math.pow(radiusArray[index], 1.06) );
+    if (radiusArray[index]<80) {
+      lineDistance=1.08;
+    }
+    else {
+      lineDistance=1.04;
+    }
+    strokeWeight(1/Math.pow(lineDistance, countMousePressed[index] - c));  
+    drawOneShape(index);
+    pop();
+  }
+
+  fill('#7F9444');
+  translate(-stoneCenterArrayX[index], -stoneCenterArrayY[index]);
+  drawAllShapes();
+  countMousePressed[index] += 1;
+}
 
 // für naechste Woche Aufgabe:
 // Code verschoenern
-// Anhand von initRadius in einem array die Groesse der Sandlinien anpassen 
