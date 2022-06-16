@@ -46,21 +46,28 @@ function setup() {
   // controls for color
   // rgb sliders syntax (range min, range max, default value)
   sliderRed = createSlider(0, 255, 156);
-  sliderRed.position(50, 750); // position is relative to html file / size
+  //sliderRed.position(50, 750); // position is relative to html file / size
   sliderRed.size(600);
+  sliderRed.parent('sliderRed');
 
   sliderGreen = createSlider(0, 255, 56);
-  sliderGreen.position(50, 800);
+  //sliderGreen.position(50, 800);
   sliderGreen.size(600);
+  sliderGreen.parent('sliderGreen');
 
   sliderBlue = createSlider(0, 255, 233);
-  sliderBlue.position(50, 850);
+  //sliderBlue.position(50, 850);
   sliderBlue.size(600);
+  sliderBlue.parent('sliderBlue');
 
 }
 
 
 function draw() {
+  for(var b =0; b<=countShape;b+=1){
+    drawSandlines(b);
+    translate(0, 0);
+  }
 }
 
 // create stones on mouse click
@@ -69,17 +76,24 @@ function mousePressed() {
 
   if (((stoneCenterArrayX[0] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[0] + initRadius)) && ((stoneCenterArrayY[0] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[0] + initRadius)) && (countShape > 0)) {
     drawSandlines(0);
+    countMousePressed[0] += 1;
+    console.log(0);
   }
   else if (((stoneCenterArrayX[1] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[1] + initRadius)) && ((stoneCenterArrayY[1] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[1] + initRadius)) && (countShape > 0)) {
     drawSandlines(1);
+    countMousePressed[1] += 1;
+    console.log(1);
   }
   else if (((stoneCenterArrayX[2] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[2] + initRadius)) && ((stoneCenterArrayY[2] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[2] + initRadius)) && (countShape > 0)) {
     drawSandlines(2);
+    countMousePressed[2] += 1;
+    console.log(2);
   }
   else if (countShape <= 2) {
     createShape(mouseX, mouseY);
   }
   translate(0, 0);
+  console.log('pressed');
 }
 
 function createShape(xpoint, ypoint) {
@@ -200,5 +214,4 @@ function drawSandlines(index) {
   fill(sliderRed.value(), sliderGreen.value(), sliderBlue.value());
   translate(-stoneCenterArrayX[index], -stoneCenterArrayY[index]);
   drawAllShapes();
-  countMousePressed[index] += 1;
 }

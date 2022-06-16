@@ -28,3 +28,18 @@ footer{
     border: 2px solid red;
     margin-top: 2%;
 }
+
+#sliderRed{
+    border: 2px solid red;
+    height: 30px;
+}
+
+#sliderGreen{
+    border: 2px solid red;
+    height: 30px;
+}
+
+#sliderBlue{
+    border: 2px solid red;
+    height: 30px;
+}
