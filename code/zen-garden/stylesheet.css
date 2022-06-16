@@ -3,4 +3,28 @@ body {
     color: #222222;
     background-color: aquamarine;
     margin-left: 3%;
+    text-align: center;
+}
+
+h1{
+    border: 2px solid red;
+}
+
+p{
+    margin: 0 auto;
+    padding-bottom: 2%;
+    text-align: left;
+    width: 30%;
+    min-width: 350px;
+    border: 2px solid red;
+}
+
+#sketch-js{
+    display: inline-block;
+    border: 2px solid red;
+}
+
+footer{
+    border: 2px solid red;
+    margin-top: 2%;
 }

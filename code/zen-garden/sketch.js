@@ -34,7 +34,8 @@ let sliderBlue;
 
 
 function setup() {
-  createCanvas(sketchWidth, sketchHeight);
+  var canvas = createCanvas(sketchWidth, sketchHeight);
+  canvas.parent('sketch-js');
   background('#EFEBD3');
   strokeWeight(1.05);
   stroke(20, 40, 20);
