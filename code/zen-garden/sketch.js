@@ -32,6 +32,17 @@ let sliderRed;
 let sliderGreen;
 let sliderBlue;
 
+// integration of audio files 
+
+let audio;
+
+function preload() {
+  audio = loadSound('among-the-cherry-blossom.mp3');
+}
+
+
+
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   background('#EFEBD3');
@@ -54,6 +65,12 @@ function setup() {
   for (let h = 0; h < windowHeight; h += 10) {
     line(0, 0 + h, windowWidth, 0 + h);
   }
+
+  // sound does not work 
+  //  {
+      // Will loop the audio track forever
+      //audio.loop();
+    //}
 
   // controls for color
   // rgb sliders syntax (range min, range max, default value)
