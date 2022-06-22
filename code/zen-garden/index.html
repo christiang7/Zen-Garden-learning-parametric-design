@@ -28,9 +28,23 @@
     <script src="/libraries/p5js/libraries/p5.sound.min.js"></script>
     <script src="/libraries/p5js/libraries/p5.sound.js"></script>
 
+    <!-- try audio play on mouse click // was mkommt wo rein und warum???-->
+    <script>
+      function play() {
+        var audio = document.getElementById("audio");
+        audio.play();
+      }
+    </script>
+
+    <input type="button" value="relax" onclick="play()">
+    <audio id="audio" src="/code/zen-garden/among-the-cherry-blossom.mp3"></audio>
+
+    <!-- if button clicked once play music if button clicked twice/again stop 
+      if button clicked again play music ... -->
 
 
-  <!-- integration of javascript sketch-->
+
+    <!-- integration of javascript sketch-->
     <script src="sketch.js"></script>
 
     <h1>my little zen garden</h1>
