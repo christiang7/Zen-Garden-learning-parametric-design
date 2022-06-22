@@ -43,6 +43,8 @@ function preload() {
 
 
 
+
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   background('#EFEBD3');
@@ -54,8 +56,25 @@ function windowResized() {
 }
 
 
+
+function userFunc(e) {
+  if (audio.isPlaying()) {
+    audio.pause ()
+  }
+  else {
+    audio.play()
+  }
+  
+  //e.preventDefault = () => console.log("prevent default!!");
+  //e.prevenDefault();
+
+  e.stopPropagation();
+  return false
+}
+
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight);
+  document.querySelector('canvas').addEventListener ('click', mousePressedCanvas)
   //canvas.parent('sketch-js');
   canvas.position(0,0);
   canvas.style('z-index','-1');
@@ -65,6 +84,9 @@ function setup() {
   for (let h = 0; h < windowHeight; h += 10) {
     line(0, 0 + h, windowWidth, 0 + h);
   }
+
+button = document.getElementById('button')
+button.addEventListener('click', userFunc)  
 
   // sound does not work 
   //  {
@@ -101,7 +123,7 @@ function draw() {
 
 // create stones on mouse click
 
-function mousePressed() {
+function mousePressedCanvas() {
 
   if (((stoneCenterArrayX[0] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[0] + initRadius)) && ((stoneCenterArrayY[0] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[0] + initRadius)) && (countShape > 0)) {
     drawSandlines(0);
