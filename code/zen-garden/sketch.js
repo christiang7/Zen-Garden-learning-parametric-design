@@ -1,6 +1,5 @@
 
-// this code part is based on generative gestaltung exercise P_2_2_3_01 (http://www.generative-gestaltung.de/2/sketches/?01_P/P_2_2_3_01). 
-// you can find the code on github: https://github.com/generative-design/Code-Package-p5.js/blob/master/01_P/P_2_2_3_01/sketch.js
+// this code is partially based on generative gestaltung exercise P_2_2_3_01 (http://www.generative-gestaltung.de/2/sketches/?01_P/P_2_2_3_01). you can find the code on github: https://github.com/generative-design/Code-Package-p5.js/blob/master/01_P/P_2_2_3_01/sketch.js
 
 // the javascript canvas size is set to browser height and width and is thereby the background
 
@@ -82,7 +81,7 @@ function preload() {
   audio = loadSound('among-the-cherry-blossom.mp3');
 }
 
-// integration of audio files 
+// integration of audio files and play / pause logic
 
 let audio;
 
@@ -97,6 +96,8 @@ function userFunc(e) {
   return false
 }
 
+// function draw is used basically in order to see the color change in stones (sliders) in real time
+
 function draw() {
   for (var b = 0; b <= countShape; b += 1) {
     drawSandlines(clickedStone[b]);
@@ -104,7 +105,7 @@ function draw() {
   }
 }
 
-// create stones on mouse click
+// create stones on mouse click on canvas
 
 function mousePressedCanvas() {
 
@@ -143,6 +144,8 @@ function mousePressedCanvas() {
   translate(0, 0);
   console.log('pressed');
 }
+
+// create the specific shape of one stone
 
 function createShape(xpoint, ypoint) {
   fill(sliderRed.value(), sliderGreen.value(), sliderBlue.value());
@@ -209,6 +212,7 @@ function createShape(xpoint, ypoint) {
 
 }
 
+// drawAllShapes is used to re-draw all stones on canvas after a sandline has been added beneath one stone
 
 function drawAllShapes() {
   for (let l = 0; l < countShape; l += 1) {
@@ -227,6 +231,8 @@ function drawAllShapes() {
   }
 }
 
+// drawOneShape scales (up) the original stone shape and draws it as a sandline
+
 function drawOneShape(index) {
   beginShape();
   // first controlpoint
@@ -240,6 +246,8 @@ function drawOneShape(index) {
   curveVertex(stoneShapeArrayX[index][1], stoneShapeArrayY[index][1]);
   endShape();
 }
+
+// here drawAllShapes and drawOneShape are combined to re-draw all stones and sandlines after each action (mouse click, draw function)
 
 function drawSandlines(index) {
   translate(stoneCenterArrayX[index], stoneCenterArrayY[index]);
@@ -264,6 +272,7 @@ function drawSandlines(index) {
   drawAllShapes();
 }
 
+// sorting algorithm to position the last clicked stone and it's sandlines on top of previously clicked stones
 
 function switchPosition(searchindex) {
   let switcher = new Boolean(true);
