@@ -2,6 +2,7 @@ body {
     font-family: "Calluna";
     color: #222222;
     text-align: center;
+    pointer-events: stroke;
 }
 
 h1{
@@ -11,8 +12,8 @@ h1{
     /*background-color: azure;*/
     font-size: 5rem;
     display: inline-block;
-    border: 2px solid red;
-    
+    border: 2px solid green;
+    pointer-events: stroke;
 }
 
 p{
@@ -23,6 +24,7 @@ p{
     width: 30%;
     min-width: 350px;
     /*border: 2px solid red;*/
+    pointer-events: none;
 }
 
 #button {

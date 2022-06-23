@@ -2,11 +2,9 @@
 // this code part is based on generative gestaltung exercise P_2_2_3_01 (http://www.generative-gestaltung.de/2/sketches/?01_P/P_2_2_3_01). 
 // you can find the code on github: https://github.com/generative-design/Code-Package-p5.js/blob/master/01_P/P_2_2_3_01/sketch.js
 
-// setting variables for canvas size (16:9 format)
-//const sketchHeight = 720;
-//const sketchWidth = 1280;
+// the javascript canvas size is set to browser height and width and is thereby the background
 
-//const circleSize = 100;
+// setting global variables
 
 var formResolution = 5;
 var stepSize = 2;
@@ -18,59 +16,27 @@ var x = [];
 var y = [];
 var stoneShapeArrayX = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0],[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]; // stores x arrays of the stones
 var stoneShapeArrayY = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0],[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
-var lineDistance = 1.05; // scaling factor of the shape controls the distance of the sandlines
+var lineDistance = 1.05; // scaling factor of the shape controls the distance between the sandlines
 var countMousePressed = [0, 0, 0, 0 , 0, 0, 0];
-//var indexShape = 0;
 var countShape = 0;
 var stoneCenterArrayX = []; // stores the x center position of a stone
 var stoneCenterArrayY = []; // stores the y center position of a stone
 var radiusArray = [];
+let sliderRed; // slider variable
+let sliderGreen; // slider variable
+let sliderBlue; // slider variable
 
-
-// declaration of slider variables
-let sliderRed;
-let sliderGreen;
-let sliderBlue;
-
+// loading sound file
 
 function preload() {
   audio = loadSound('among-the-cherry-blossom.mp3');
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  background('#EFEBD3');
-  strokeWeight(1.05);
-  stroke(20, 40, 20);
-  for (let h = 0; h < windowHeight; h += 10) {
-    line(0, 0 + h, windowWidth, 0 + h);
-  }
-}
-
-// integration of audio files 
-
-let audio;
-
-function userFunc(e) {
-  if (audio.isPlaying()) {
-    audio.pause ()
-  }
-  else {
-    audio.play()
-  }
-  
-  //e.preventDefault = () => console.log("prevent default!!");
-  //e.prevenDefault();
-
-  e.stopPropagation();
-  return false
-}
 
 
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight);
   document.querySelector('canvas').addEventListener ('click', mousePressedCanvas)
-  //canvas.parent('sketch-js');
   canvas.position(0,0);
   canvas.style('z-index','-1');
   background('#EFEBD3');
@@ -108,6 +74,35 @@ function setup() {
 
 }
 
+// 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  background('#EFEBD3');
+  strokeWeight(1.05);
+  stroke(20, 40, 20);
+  for (let h = 0; h < windowHeight; h += 10) {
+    line(0, 0 + h, windowWidth, 0 + h);
+  }
+}
+
+// integration of audio files 
+
+let audio;
+
+function userFunc(e) {
+  if (audio.isPlaying()) {
+    audio.pause ()
+  }
+  else {
+    audio.play()
+  }
+  
+  //e.preventDefault = () => console.log("prevent default!!");
+  //e.prevenDefault();
+
+   e.stopPropagation();
+    return false
+}
 
 function draw() {
   for(var b =0; b<=countShape;b+=1){
