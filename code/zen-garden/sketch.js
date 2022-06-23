@@ -14,67 +14,62 @@ var centerX;
 var centerY;
 var x = [];
 var y = [];
-var stoneShapeArrayX = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0],[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]; // stores x arrays of the stones
-var stoneShapeArrayY = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0],[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
+var stoneShapeArrayX = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]; // stores x arrays of the stones
+var stoneShapeArrayY = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
 var lineDistance = 1.05; // scaling factor of the shape controls the distance between the sandlines
-var countMousePressed = [0, 0, 0, 0 , 0, 0, 0];
+var countMousePressed = [0, 0, 0, 0, 0, 0, 0];
 var countShape = 0;
 var stoneCenterArrayX = []; // stores the x center position of a stone
 var stoneCenterArrayY = []; // stores the y center position of a stone
 var radiusArray = [];
+var clickedStone = [0, 1, 2, 3, 4];
 let sliderRed; // slider variable
 let sliderGreen; // slider variable
 let sliderBlue; // slider variable
 
-// loading sound file
-
-function preload() {
-  audio = loadSound('among-the-cherry-blossom.mp3');
-}
 
 
+
+
+// setting the background color and strokes (sandlines)
 
 function setup() {
+
+  frameRate(3); // framerate is lowered to spare the cpu 
+
   var canvas = createCanvas(windowWidth, windowHeight);
-  document.querySelector('canvas').addEventListener ('click', mousePressedCanvas)
-  canvas.position(0,0);
-  canvas.style('z-index','-1');
+  document.querySelector('canvas').addEventListener('click', mousePressedCanvas)
+  canvas.position(0, 0);
+  canvas.style('z-index', '-1');
   background('#EFEBD3');
   strokeWeight(1.05);
   stroke(20, 40, 20);
+
+  // sandlines
   for (let h = 0; h < windowHeight; h += 10) {
     line(0, 0 + h, windowWidth, 0 + h);
   }
 
+  // button for playing music
   button = document.getElementById('button')
-  button.addEventListener('click', userFunc)  
+  button.addEventListener('click', userFunc)
 
-  // sound does not work 
-  //  {
-      // Will loop the audio track forever
-      //audio.loop();
-    //}
-
-  // controls for color
-  // rgb sliders syntax (range min, range max, default value)
+  // controls for color. rgb sliders syntax (range min, range max, default value)
   sliderRed = createSlider(0, 255, 156);
-  //sliderRed.position(50, 750); // position is relative to html file / size
   sliderRed.size(600);
   sliderRed.parent('sliderRed');
 
   sliderGreen = createSlider(0, 255, 56);
-  //sliderGreen.position(50, 800);
   sliderGreen.size(600);
   sliderGreen.parent('sliderGreen');
 
   sliderBlue = createSlider(0, 255, 233);
-  //sliderBlue.position(50, 850);
   sliderBlue.size(600);
   sliderBlue.parent('sliderBlue');
-
 }
 
-// 
+// making the site responsive
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   background('#EFEBD3');
@@ -85,28 +80,30 @@ function windowResized() {
   }
 }
 
+// loading sound file
+
+function preload() {
+  audio = loadSound('among-the-cherry-blossom.mp3');
+}
+
 // integration of audio files 
 
 let audio;
 
 function userFunc(e) {
   if (audio.isPlaying()) {
-    audio.pause ()
+    audio.pause()
   }
   else {
     audio.play()
   }
-  
-  //e.preventDefault = () => console.log("prevent default!!");
-  //e.prevenDefault();
-
-   e.stopPropagation();
-    return false
+  e.stopPropagation();
+  return false
 }
 
 function draw() {
-  for(var b =0; b<=countShape;b+=1){
-    drawSandlines(b);
+  for (var b = 0; b <= countShape; b += 1) {
+    drawSandlines(clickedStone[b]);
     translate(0, 0);
   }
 }
@@ -118,26 +115,31 @@ function mousePressedCanvas() {
   if (((stoneCenterArrayX[0] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[0] + initRadius)) && ((stoneCenterArrayY[0] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[0] + initRadius)) && (countShape > 0)) {
     drawSandlines(0);
     countMousePressed[0] += 1;
+    switchPosition(0);
     console.log(0);
   }
   else if (((stoneCenterArrayX[1] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[1] + initRadius)) && ((stoneCenterArrayY[1] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[1] + initRadius)) && (countShape > 0)) {
     drawSandlines(1);
     countMousePressed[1] += 1;
+    switchPosition(1);
     console.log(1);
   }
   else if (((stoneCenterArrayX[2] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[2] + initRadius)) && ((stoneCenterArrayY[2] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[2] + initRadius)) && (countShape > 0)) {
     drawSandlines(2);
     countMousePressed[2] += 1;
+    switchPosition(2);
     console.log(2);
   }
   else if (((stoneCenterArrayX[3] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[3] + initRadius)) && ((stoneCenterArrayY[3] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[3] + initRadius)) && (countShape > 0)) {
     drawSandlines(3);
     countMousePressed[3] += 1;
+    switchPosition(3);
     //console.log(3);
   }
   else if (((stoneCenterArrayX[4] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[4] + initRadius)) && ((stoneCenterArrayY[4] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[4] + initRadius)) && (countShape > 0)) {
     drawSandlines(4);
     countMousePressed[4] += 1;
+    switchPosition(4);
   }
   else if (countShape <= 4) {
     createShape(mouseX, mouseY);
@@ -264,4 +266,20 @@ function drawSandlines(index) {
   fill(sliderRed.value(), sliderGreen.value(), sliderBlue.value());
   translate(-stoneCenterArrayX[index], -stoneCenterArrayY[index]);
   drawAllShapes();
+}
+
+
+function switchPosition(searchindex) {
+  let switcher = new Boolean(true);
+  let container = 0;
+  var i = 0;
+  while (switcher) {
+    if (searchindex === clickedStone[i]) {
+      container = clickedStone[countShape];
+      clickedStone[countShape] = searchindex;
+      clickedStone[i] = container;
+      switcher = false;
+    }
+    i += 1;
+  }
 }
