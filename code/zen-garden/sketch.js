@@ -82,6 +82,8 @@ function preload() {
 }
 
 // integration of audio files and play / pause logic
+//audio.loop(); for looping, looking for the right position
+
 
 let audio;
 
@@ -103,6 +105,7 @@ function draw() {
     drawSandlines(clickedStone[b]);
     translate(0, 0);
   }
+  //audio.loop();
 }
 
 // create stones on mouse click on canvas
@@ -255,6 +258,7 @@ function drawSandlines(index) {
 
   for (var c = 0; c <= countMousePressed[index]; c += 1) {
     push();
+    // hier wird die distance angepasst --> formel siehe heft 
     scale(1 + (countMousePressed[index] - c) * 10 / Math.pow(radiusArray[index], 1.06));
     if (radiusArray[index] < 80) {
       lineDistance = 1.08;
@@ -262,6 +266,7 @@ function drawSandlines(index) {
     else {
       lineDistance = 1.04;
     }
+    // hier wird die stroke weight angepasst --> formel siehe heft
     strokeWeight(1 / Math.pow(lineDistance, countMousePressed[index] - c));
     drawOneShape(index);
     pop();
