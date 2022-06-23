@@ -144,15 +144,7 @@ function mousePressedCanvas() {
     drawSandlines(4);
     countMousePressed[4] += 1;
   }
-  else if (((stoneCenterArrayX[5] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[5] + initRadius)) && ((stoneCenterArrayY[5] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[5] + initRadius)) && (countShape > 0)) {
-    drawSandlines(5);
-    countMousePressed[5] += 1;
-  }
-  else if (((stoneCenterArrayX[6] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[6] + initRadius)) && ((stoneCenterArrayY[6] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[6] + initRadius)) && (countShape > 0)) {
-    drawSandlines(6);
-    countMousePressed[6] += 1;
-  }
-  else if (countShape <= 6) {
+  else if (countShape <= 4) {
     createShape(mouseX, mouseY);
   }
   translate(0, 0);
