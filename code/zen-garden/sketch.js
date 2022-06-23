@@ -23,13 +23,9 @@ var stoneCenterArrayX = []; // stores the x center position of a stone
 var stoneCenterArrayY = []; // stores the y center position of a stone
 var radiusArray = [];
 var clickedStone = [0, 1, 2, 3, 4];
-let sliderRed; // slider variable
-let sliderGreen; // slider variable
-let sliderBlue; // slider variable
-
-
-
-
+let sliderRed; 
+let sliderGreen;
+let sliderBlue; 
 
 // setting the background color and strokes (sandlines)
 

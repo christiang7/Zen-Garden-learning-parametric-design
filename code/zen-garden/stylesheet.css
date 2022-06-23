@@ -2,7 +2,7 @@ body {
     font-family: "Calluna";
     color: #222222;
     text-align: center;
-    pointer-events: stroke;
+    
 }
 
 h1{
@@ -13,7 +13,7 @@ h1{
     font-size: 5rem;
     display: inline-block;
     border: 2px solid green;
-    pointer-events: stroke;
+    pointer-events: none;
 }
 
 p{
