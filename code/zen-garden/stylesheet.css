@@ -10,17 +10,23 @@ h1{
     /*border: 2px solid red;*/
     /*background-color: azure;*/
     font-size: 5rem;
+    display: inline-block;
+    border: 2px solid red;
     
 }
 
 p{
     display: flex;
     margin: 0 auto;
+    margin-bottom: 2%;
     text-align: left;
     width: 30%;
     min-width: 350px;
     /*border: 2px solid red;*/
-    
+}
+
+#button {
+    color: red;
 }
 
 /*#sketch-js{

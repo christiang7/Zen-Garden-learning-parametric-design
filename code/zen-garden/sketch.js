@@ -3,10 +3,10 @@
 // you can find the code on github: https://github.com/generative-design/Code-Package-p5.js/blob/master/01_P/P_2_2_3_01/sketch.js
 
 // setting variables for canvas size (16:9 format)
-const sketchHeight = 720;
-const sketchWidth = 1280;
+//const sketchHeight = 720;
+//const sketchWidth = 1280;
 
-const circleSize = 100;
+//const circleSize = 100;
 
 var formResolution = 5;
 var stepSize = 2;
@@ -16,10 +16,10 @@ var centerX;
 var centerY;
 var x = [];
 var y = [];
-var stoneShapeArrayX = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]; // stores x arrays of the stones
-var stoneShapeArrayY = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
+var stoneShapeArrayX = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0],[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]; // stores x arrays of the stones
+var stoneShapeArrayY = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0],[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
 var lineDistance = 1.05; // scaling factor of the shape controls the distance of the sandlines
-var countMousePressed = [0, 0, 0];
+var countMousePressed = [0, 0, 0, 0 , 0, 0, 0];
 //var indexShape = 0;
 var countShape = 0;
 var stoneCenterArrayX = []; // stores the x center position of a stone
@@ -32,18 +32,10 @@ let sliderRed;
 let sliderGreen;
 let sliderBlue;
 
-// integration of audio files 
-
-let audio;
 
 function preload() {
   audio = loadSound('among-the-cherry-blossom.mp3');
 }
-
-
-
-
-
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
@@ -55,7 +47,9 @@ function windowResized() {
   }
 }
 
+// integration of audio files 
 
+let audio;
 
 function userFunc(e) {
   if (audio.isPlaying()) {
@@ -72,6 +66,7 @@ function userFunc(e) {
   return false
 }
 
+
 function setup() {
   var canvas = createCanvas(windowWidth, windowHeight);
   document.querySelector('canvas').addEventListener ('click', mousePressedCanvas)
@@ -85,8 +80,8 @@ function setup() {
     line(0, 0 + h, windowWidth, 0 + h);
   }
 
-button = document.getElementById('button')
-button.addEventListener('click', userFunc)  
+  button = document.getElementById('button')
+  button.addEventListener('click', userFunc)  
 
   // sound does not work 
   //  {
@@ -140,7 +135,24 @@ function mousePressedCanvas() {
     countMousePressed[2] += 1;
     console.log(2);
   }
-  else if (countShape <= 2) {
+  else if (((stoneCenterArrayX[3] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[3] + initRadius)) && ((stoneCenterArrayY[3] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[3] + initRadius)) && (countShape > 0)) {
+    drawSandlines(3);
+    countMousePressed[3] += 1;
+    //console.log(3);
+  }
+  else if (((stoneCenterArrayX[4] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[4] + initRadius)) && ((stoneCenterArrayY[4] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[4] + initRadius)) && (countShape > 0)) {
+    drawSandlines(4);
+    countMousePressed[4] += 1;
+  }
+  else if (((stoneCenterArrayX[5] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[5] + initRadius)) && ((stoneCenterArrayY[5] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[5] + initRadius)) && (countShape > 0)) {
+    drawSandlines(5);
+    countMousePressed[5] += 1;
+  }
+  else if (((stoneCenterArrayX[6] - initRadius) < mouseX) && (mouseX < (stoneCenterArrayX[6] + initRadius)) && ((stoneCenterArrayY[6] - initRadius) < mouseY) && (mouseY < (stoneCenterArrayY[6] + initRadius)) && (countShape > 0)) {
+    drawSandlines(6);
+    countMousePressed[6] += 1;
+  }
+  else if (countShape <= 6) {
     createShape(mouseX, mouseY);
   }
   translate(0, 0);
