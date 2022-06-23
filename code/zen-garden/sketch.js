@@ -35,7 +35,7 @@ function setup() {
   var canvas = createCanvas(windowWidth, windowHeight);
   document.querySelector('canvas').addEventListener('click', mousePressedCanvas)
   canvas.position(0, 0);
-  canvas.style('z-index', '-1');
+  canvas.style('z-index', '0');
   background('#EFEBD3');
   strokeWeight(1.05);
   stroke(20, 40, 20);

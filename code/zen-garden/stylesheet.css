@@ -3,17 +3,24 @@ body {
     color: #222222;
     text-align: center;
     border: 2px solid red;
+    height:100vh;
+    flex-direction: column;
+    z-index: -2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 h1{
     display: flex;
-    justify-content: center;
+    
     /*border: 2px solid red;*/
     /*background-color: azure;*/
     font-size: 5rem;
     display: inline-block;
     border: 2px solid green;
     pointer-events: none;
+    z-index: 6;
 }
 
 p{
@@ -25,10 +32,13 @@ p{
     min-width: 350px;
     /*border: 2px solid red;*/
     pointer-events: none;
+    z-index: 6;
 }
 
 #button {
     color: red;
+    display: flex;
+    z-index: 6;
 }
 
 /*#sketch-js{
@@ -38,38 +48,41 @@ p{
 
 footer{
     /*border: 2px solid red;*/
+    display: flex;
     margin-top: 2%;
+    margin: 0 auto;
     position: absolute;
-    left: 0%;
-    right: 0%;
+    
     bottom: 0;
+  
+    z-index: 6;
 }
 
 #sliderRed{
-    
+    display: flex;
     height: 30px;
     position: absolute;
-    left: 0%;
-    right: 0%;
+    margin: 0 auto;
     bottom: 9%;
+    z-index: 6;
 }
 
 #sliderGreen{
-    
+    display: flex;
     height: 30px;
     position: absolute;
-    left: 0%;
-    right: 0%;
+    margin: 0 auto;
     bottom: 6%;
+    z-index: 6;
 }
 
 #sliderBlue{
-    
+    display: flex;
     height: 30px;
     position: absolute;
-    left: 0%;
-    right: 0%;
+    margin: 0 auto;
     bottom: 3%;
+    z-index: 6;
 }
 
  
