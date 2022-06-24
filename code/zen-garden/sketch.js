@@ -36,9 +36,9 @@ function setup() {
   document.querySelector('canvas').addEventListener('click', mousePressedCanvas)
   canvas.position(0, 0);
   canvas.style('z-index', '0');
-  background('#EFEBD3');
+  background('#F0F1F2');
   strokeWeight(1.05);
-  stroke(20, 40, 20);
+  stroke(95, 102, 109);
 
   // sandlines
   for (let h = 0; h < windowHeight; h += 10) {
@@ -50,15 +50,15 @@ function setup() {
   button.addEventListener('click', userFunc)
 
   // controls for color. rgb sliders syntax (range min, range max, default value)
-  sliderRed = createSlider(0, 255, 156);
+  sliderRed = createSlider(0, 255, 164);
   sliderRed.size(600);
   sliderRed.parent('sliderRed');
 
-  sliderGreen = createSlider(0, 255, 56);
+  sliderGreen = createSlider(0, 255, 165);
   sliderGreen.size(600);
   sliderGreen.parent('sliderGreen');
 
-  sliderBlue = createSlider(0, 255, 233);
+  sliderBlue = createSlider(0, 255, 84);
   sliderBlue.size(600);
   sliderBlue.parent('sliderBlue');
 }
@@ -67,7 +67,7 @@ function setup() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  background('#EFEBD3');
+  background('#F0F1F2');
   strokeWeight(1.05);
   stroke(20, 40, 20);
   for (let h = 0; h < windowHeight; h += 10) {
@@ -254,7 +254,7 @@ function drawOneShape(index) {
 
 function drawSandlines(index) {
   translate(stoneCenterArrayX[index], stoneCenterArrayY[index]);
-  fill('#EFEBD3');
+  fill('#F0F1F2');
 
   for (var c = 0; c <= countMousePressed[index]; c += 1) {
     push();

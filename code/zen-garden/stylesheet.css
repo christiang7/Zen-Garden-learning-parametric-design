@@ -2,23 +2,19 @@ body {
     font-family: "Calluna";
     color: #222222;
     text-align: center;
-    border: 2px solid red;
     height:100vh;
     flex-direction: column;
     z-index: -2;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    color: #27311C;
 }
 
 h1{
     display: flex;
-    
-    /*border: 2px solid red;*/
-    /*background-color: azure;*/
     font-size: 5rem;
     display: inline-block;
-    border: 2px solid green;
     pointer-events: none;
     z-index: 6;
 }
@@ -36,7 +32,7 @@ p{
 }
 
 #button {
-    color: red;
+    color: #27311C;
     display: flex;
     z-index: 6;
 }
