@@ -1,6 +1,6 @@
 body {
-    font-family: "Calluna";
-    color: #222222;
+    font-family: "lunatix";
+    font-weight: 700;
     text-align: center;
     height:100vh;
     flex-direction: column;
@@ -17,16 +17,19 @@ h1{
     display: inline-block;
     pointer-events: none;
     z-index: 6;
+    margin-bottom: 0;
+    margin-top: 5%;
 }
 
 p{
+    font-weight: 400;
+    font-size: 1.125rem;
     display: flex;
     margin: 0 auto;
-    margin-bottom: 2%;
-    text-align: left;
+    margin-top: 1%;
+    text-align: center;
     width: 30%;
     min-width: 350px;
-    /*border: 2px solid red;*/
     pointer-events: none;
     z-index: 6;
 }
@@ -35,6 +38,7 @@ p{
     color: #27311C;
     display: flex;
     z-index: 6;
+    margin-top: 30px;
 }
 
 /*#sketch-js{
@@ -48,9 +52,8 @@ footer{
     margin-top: 2%;
     margin: 0 auto;
     position: absolute;
-    
+    font-weight: 400;
     bottom: 0;
-  
     z-index: 6;
 }
 
