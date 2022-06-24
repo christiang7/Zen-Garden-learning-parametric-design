@@ -57,6 +57,8 @@ p{
 }*/
 
 footer{
+    /*border: 2px solid red;*/
+    
     font-size: 0.85rem;
     width: 35%;
     display: flex;
@@ -94,6 +96,11 @@ footer{
     margin: 0 auto;
     bottom: 8%;
     z-index: 6;
+}
+
+a {
+    /*border: 2px solid red;*/
+    
 }
 
  
