@@ -38,7 +38,7 @@ function setup() {
   canvas.style('z-index', '0');
   background('#F0F1F2');
   strokeWeight(1.05);
-  stroke(95, 102, 109);
+  stroke(173, 178, 184);
 
   // sandlines
   for (let h = 0; h < windowHeight; h += 10) {
@@ -69,7 +69,7 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   background('#F0F1F2');
   strokeWeight(1.05);
-  stroke(20, 40, 20);
+  stroke(173, 178, 184);
   for (let h = 0; h < windowHeight; h += 10) {
     line(0, 0 + h, windowWidth, 0 + h);
   }

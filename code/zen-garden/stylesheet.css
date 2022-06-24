@@ -1,5 +1,5 @@
 body {
-    font-family: "lunatix";
+    font-family: "IBM-Plex-Sans";
     font-weight: 700;
     text-align: center;
     height:100vh;
@@ -12,23 +12,24 @@ body {
 }
 
 h1{
+    font-family: "lunatix";
     display: flex;
     font-size: 5rem;
     display: inline-block;
     pointer-events: none;
     z-index: 6;
     margin-bottom: 0;
-    margin-top: 5%;
+    margin-top: 4%;
 }
 
 p{
-    font-weight: 400;
-    font-size: 1.125rem;
+    font-weight: 700;
+    font-size: 1.2rem;
     display: flex;
     margin: 0 auto;
-    margin-top: 1%;
+    margin-top: 0.6%;
     text-align: center;
-    width: 30%;
+    width: 37%;
     min-width: 350px;
     pointer-events: none;
     z-index: 6;
@@ -39,7 +40,16 @@ p{
     display: flex;
     z-index: 6;
     margin-top: 30px;
+    padding: 10px 20px;
+    font-family: "IBM-Plex-Sans";
+    border-radius: 8px;
+    border: none;
+    background-color: #D9DBDE;
 }
+
+#button:hover {
+    background-color: #A4A554;
+  }
 
 /*#sketch-js{
     border: 2px solid red;
@@ -47,14 +57,16 @@ p{
 }*/
 
 footer{
-    /*border: 2px solid red;*/
+    font-size: 0.85rem;
+    width: 35%;
     display: flex;
     margin-top: 2%;
     margin: 0 auto;
     position: absolute;
     font-weight: 400;
-    bottom: 0;
+    bottom: 10px;
     z-index: 6;
+    line-height: 1.2;
 }
 
 #sliderRed{
@@ -62,7 +74,7 @@ footer{
     height: 30px;
     position: absolute;
     margin: 0 auto;
-    bottom: 9%;
+    bottom: 14%;
     z-index: 6;
 }
 
@@ -71,7 +83,7 @@ footer{
     height: 30px;
     position: absolute;
     margin: 0 auto;
-    bottom: 6%;
+    bottom: 11%;
     z-index: 6;
 }
 
@@ -80,7 +92,7 @@ footer{
     height: 30px;
     position: absolute;
     margin: 0 auto;
-    bottom: 3%;
+    bottom: 8%;
     z-index: 6;
 }
 
