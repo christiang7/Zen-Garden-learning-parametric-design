@@ -95,15 +95,16 @@ footer a {
   user-select: auto;
   width: 80vw !important;
   max-width: 600px;
+  accent-color: #cddabe;
 }
 
 .slider > * {
   width: 100%;
 }
 
-#sliderRed {
+/* #sliderRed {
   accent-color: red;
-}
+} */
 
 /* #sliderRed {
   display: flex;
