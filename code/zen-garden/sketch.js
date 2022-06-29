@@ -311,8 +311,7 @@ function drawSandlines(index) {
 
   for (var c = 0; c <= countMousePressed[index]; c += 1) {
     push();
-    // hier wird die distance angepasst --> formel siehe heft
-    //hier mach größer
+    // setting the distance between sandlines
     const scaleFactor =
       1 +
       ((countMousePressed[index] - c) * 10) /
@@ -323,8 +322,7 @@ function drawSandlines(index) {
     } else {
       lineDistance = 1.04;
     }
-    // hier wird die stroke weight angepasst --> formel siehe heft
-    //hier teile durch das was du oben größer gemacht hast
+    // setting the stroke weight
     strokeWeight(1 / scaleFactor);
     drawOneShape(index);
     pop();
