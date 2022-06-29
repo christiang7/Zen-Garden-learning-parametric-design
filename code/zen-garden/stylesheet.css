@@ -65,7 +65,7 @@ footer{
     bottom: 10px;
     z-index: 6;
     line-height: 1.2;
-    min-width: 400px;
+    min-width: 300px;
 }
 
 #sliderRed{
@@ -102,6 +102,26 @@ a {
 
 a:hover {
     color: hotpink;
+  }
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 4rem;
+    }
+    p {
+        font-size: 0.85rem;
+    }
+    footer {
+        font-size: 0.65rem;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    #sliderRed {
+        width: 300px;
+    }
+    }
+    
   }
 
  
