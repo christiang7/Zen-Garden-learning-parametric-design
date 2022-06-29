@@ -1,127 +1,166 @@
 body {
-    font-family: "IBM-Plex-Sans";
-    font-weight: 700;
-    text-align: center;
-    height:100vh;
-    flex-direction: column;
-    z-index: -2;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    color: #27311C;
+  font-family: "IBM-Plex-Sans";
+  font-weight: 700;
+  text-align: center;
+  height: 100vh;
+  color: #27311c;
 }
 
-h1{
-    font-family: "lunatix";
-    display: flex;
-    font-size: 5rem;
-    display: inline-block;
-    pointer-events: none;
-    z-index: 6;
-    margin-bottom: 0;
-    margin-top: 4%;
+.container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  user-select: none;
+  width: 100%;
+  height: 100%;
 }
 
-p{
-    font-weight: 700;
-    font-size: 1.2rem;
-    display: flex;
-    margin: 0 auto;
-    margin-top: 0.6%;
-    text-align: center;
-    width: 37%;
-    min-width: 350px;
-    pointer-events: none;
-    z-index: 6;
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-family: "lunatix";
+  display: flex;
+  font-size: 5rem;
+  display: inline-block;
+  pointer-events: none;
+  z-index: 6;
+  margin-bottom: 0;
+  margin-top: 4%;
+}
+
+p {
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 0.6%;
+  text-align: center;
+  width: 37%;
+  min-width: 350px;
+  pointer-events: none;
+  z-index: 6;
 }
 
 #button {
-    color: #CDDABE;
-    display: flex;
-    z-index: 6;
-    margin-top: 30px;
-    padding: 10px 20px;
-    font-family: "IBM-Plex-Sans";
-    border-radius: 40px;
-    border: none;
-    background-color: #BDC2C6;
-    border: 1px solid #ADB2B8;
-    background-image: linear-gradient(to right, #5A7241 , #27311C);
+  width: min-content;
+  pointer-events: all;
+  user-select: auto;
+  color: #cddabe;
+  display: flex;
+  z-index: 6;
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-family: "IBM-Plex-Sans";
+  border-radius: 40px;
+  border: none;
+  background-color: #bdc2c6;
+  border: 1px solid #adb2b8;
+  background-image: linear-gradient(to right, #5a7241, #27311c);
 }
 
 #button:hover {
-    background-color: #A4A554;
-    background-image: linear-gradient(to right, #40512E , #1A2013);
-    border: 1px solid #838443;
-  }
-
-footer{ 
-    font-size: 0.85rem;
-    width: 35%;
-    margin-top: 2%;
-    margin: 0 auto;
-    position: absolute;
-    font-weight: 400;
-    bottom: 10px;
-    z-index: 6;
-    line-height: 1.2;
-    min-width: 300px;
+  background-color: #a4a554;
+  background-image: linear-gradient(to right, #40512e, #1a2013);
+  border: 1px solid #838443;
 }
 
-#sliderRed{
-    display: flex;
-    height: 30px;
-    position: absolute;
-    margin: 0 auto;
-    bottom: 14%;
-    z-index: 6;
+footer {
+  font-size: 0.85rem;
+  width: 35%;
+  padding: 1rem 0;
+  font-weight: 400;
+  bottom: 10px;
+  z-index: 6;
+  line-height: 1.2;
+  min-width: 300px;
+  pointer-events: none;
+  user-select: none;
 }
 
-#sliderGreen{
-    display: flex;
-    height: 30px;
-    position: absolute;
-    margin: 0 auto;
-    bottom: 11%;
-    z-index: 6;
+footer a {
+  pointer-events: all;
+  user-select: auto;
 }
 
-#sliderBlue{
-    display: flex;
-    height: 30px;
-    position: absolute;
-    margin: 0 auto;
-    bottom: 8%;
-    z-index: 6;
+.slider {
+  pointer-events: all;
+  user-select: auto;
+  width: 80vw !important;
+  max-width: 600px;
 }
+
+.slider > * {
+  width: 100%;
+}
+
+#sliderRed {
+  accent-color: red;
+}
+
+/* #sliderRed {
+  display: flex;
+  height: 30px;
+  position: absolute;
+  margin: 0 auto;
+  bottom: 14%;
+  z-index: 6;
+}
+
+#sliderGreen {
+  display: flex;
+  height: 30px;
+  position: absolute;
+  margin: 0 auto;
+  bottom: 11%;
+  z-index: 6;
+}
+
+#sliderBlue {
+  display: flex;
+  height: 30px;
+  position: absolute;
+  margin: 0 auto;
+  bottom: 8%;
+  z-index: 6;
+}  */
 
 a {
-   color: #5A7241;
-   text-decoration: none; 
+  color: #5a7241;
+  text-decoration: none;
 }
 
 a:hover {
-    color: hotpink;
-  }
+  color: hotpink;
+}
 
 @media screen and (max-width: 480px) {
-    h1 {
-        font-size: 4rem;
-    }
-    p {
-        font-size: 0.85rem;
-    }
-    footer {
-        font-size: 0.65rem;
-    }
+  h1 {
+    font-size: 4rem;
   }
-
-  @media screen and (max-width: 750px) {
-    #sliderRed {
-        width: 300px;
-    }
-    }
-    
+  p {
+    font-size: 0.85rem;
   }
+  footer {
+    font-size: 0.65rem;
+  }
+}
 
- 
+@media screen and (max-width: 600px) {
+  #sliderRed {
+    width: 300px;
+  }
+  #sliderGreen {
+    width: 300px;
+  }
+  #sliderBlue {
+    width: 300px;
+  }
+}
