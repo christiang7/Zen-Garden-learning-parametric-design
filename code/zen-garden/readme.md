@@ -5,6 +5,9 @@ This project was developed as part of the "Parametric Design" course by Prof. Se
 
 The users are given the opportunity to interactively create their own garden on a screen. The experience allows for a free positioning of five stones, any number of sand lines around each stone and the specification of a favorite stone color. The format is a simple one page website with integrated controls.
 
+## the website
+Be welcome to try the experience out yourself: https://annameide.github.io/learning-parametric-design/code/zen-garden/online.html
+
 ## idea sketches
 <img width="100%" alt="idea_sketches" src="https://user-images.githubusercontent.com/46717848/169256819-18a3fd34-bd1a-40a7-94d5-e92eb51c5248.png">
 
