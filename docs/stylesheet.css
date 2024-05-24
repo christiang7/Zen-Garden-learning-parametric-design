@@ -1,0 +1,132 @@
+body {
+  font-family: "IBM-Plex-Sans";
+  font-weight: 700;
+  text-align: center;
+  height: 100vh;
+  color: #27311c;
+}
+
+.container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-family: "lunatix";
+  display: flex;
+  font-size: 5rem;
+  display: inline-block;
+  pointer-events: none;
+  z-index: 6;
+  margin-bottom: 0;
+  margin-top: 4%;
+  /* background: #5a7241;
+  background: linear-gradient(to right, #5a7241 0%, #27311c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+
+p {
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 0.6%;
+  text-align: center;
+  width: 37%;
+  min-width: 350px;
+  pointer-events: none;
+  z-index: 6;
+}
+
+#button {
+  width: min-content;
+  pointer-events: all;
+  user-select: auto;
+  color: #cddabe;
+  display: flex;
+  z-index: 6;
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-family: "IBM-Plex-Sans";
+  border-radius: 40px;
+  border: none;
+  background-color: #bdc2c6;
+  border: 1px solid #adb2b8;
+  background-image: linear-gradient(to right, #5a7241, #27311c);
+}
+
+#button:hover {
+  background-color: #a4a554;
+  background-image: linear-gradient(to right, #40512e, #1a2013);
+  border: 1px solid #838443;
+}
+
+.slider {
+  pointer-events: all;
+  user-select: auto;
+  width: 80vw !important;
+  max-width: 600px;
+  /* accent-color: #d9dbde; */
+}
+
+.slider > * {
+  width: 100%;
+}
+
+/* #sliderRed {
+  accent-color: red;
+} */
+
+a {
+  color: #5a7241;
+  text-decoration: none;
+}
+
+a:hover {
+  color: hotpink;
+}
+
+footer {
+  font-size: 0.85rem;
+  width: 35%;
+  padding: 1rem 0;
+  font-weight: 400;
+  bottom: 10px;
+  z-index: 6;
+  line-height: 1.2;
+  min-width: 300px;
+  pointer-events: none;
+  user-select: none;
+}
+
+footer a {
+  pointer-events: all;
+  user-select: auto;
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 4rem;
+  }
+  p {
+    font-size: 0.85rem;
+  }
+  footer {
+    font-size: 0.65rem;
+  }
+}

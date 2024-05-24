@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/learning-parametric-design/libraries/p5js/p5.css"
+    />
+
+    <!--css style sheet-->
+    <link rel="stylesheet" href="./stylesheet.css" />
+
+    <title>Digital Zen Garden</title>
+
+    <!-- integration of javascript libraries-->
+    <script src="/learning-parametric-design/libraries/p5js/p5.min.js"></script>
+    <script src="/learning-parametric-design/libraries/p5js/libraries/p5.svg.js"></script>
+    <script src="/learning-parametric-design/libraries/p5js/libraries/p5.sound.min.js"></script>
+    <script src="/learning-parametric-design/libraries/p5js/libraries/p5.sound.js"></script>
+
+    <!-- integration of javascript sketch-->
+    <script src="sketch.js"></script>
+
+    <!-- font integration from adobe fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/ajt4nfz.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="wrap">
+        <h1>Digital Zen Garden</h1>
+        <p>
+          A Zen Garden can take on many forms but the purpose is always the same –
+          to contemplate. Be welcome to create your garden here by clicking on the sand and stones.
+        </p>
+        <button id="button">contemplate</button>
+      </div>
+      <div class="wrap" style="margin-top: auto;">
+        <div class='slider' id="sliderRed"></div>
+        <div class='slider' id="sliderGreen"></div>
+        <div class='slider' id="sliderBlue"></div>
+      </div>
+      <footer>
+        The coding Project Digital Zen Garden was created as part of the
+        Parametric Design course during the summer term 2022 at the
+        <a href="https://design.fh-potsdam.de/"
+          >University of Applied Sciences Potsdam</a
+        >
+        held by Prof. Sebastian Meier. You can find the full documentation on
+        <a
+          href="https://github.com/annameide/learning-parametric-design/tree/main/code/zen-garden"
+          >GitHub</a
+        >. &copy; Anna Meide
+      </footer>
+    </div>
+    </div>
+  </body>
+</html>
